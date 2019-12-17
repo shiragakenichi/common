@@ -1,0 +1,42 @@
+.contents{
+  width: 100vw;
+  height: 100vh;
+}
+
+.head{
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  background: blanchedalmond;
+}
+
+.head-left{
+  width: 400px;
+  display: inline-block;
+}
+
+
+
+.head-right{
+  width: 400px;
+  float: right;
+}
+
+.level{
+  display: flex;
+  
+}
+
+.level-g{
+  display: flex;
+}
+
+.head-right{
+  display: flex;
+}
+
+.sarch{
+  display: contents;
+}
+
+
