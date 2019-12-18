@@ -1,0 +1,80 @@
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :nickname
+-#     %em (10 characters maximum)
+-#     %br/
+-#     = f.text_field :nickname, autofocus: true, maxlength: "10"
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
+
+.wrapper
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .login-main
+      .login-sub
+        .login-left
+          .left-image
+            .image-box
+              =image_tag("/images/dummyface.png",class:"new-user-image", height: "180px", width: "180px")
+          .left-exa
+            .left-sns
+              .left-sns-icon
+                %i.fab.fa-google
+                //= icon('fab', 'fa-google', class: "google-icon")
+              = link_to "",class:"sns-bb" do
+                .sns-box-google
+                  %i.fab.fa-google
+                  Googleでログイン
+            .left-sns
+              .left-sns-icon
+                //= icon('fab', 'fa-twitter', class: "twitter-icon")
+                %i.fab.fa-twitter
+              = link_to "" do
+                .sns-box-twitter
+                  %i.fab.fa-twitter
+                  twitterでログイン
+            .left-sns
+              .left-sns-icon
+                = icon('fab', 'facebook-square', class: "facebook-icon")
+              = link_to "" do
+                .sns-box-facebook
+                  %i.fab.fa-facebook-square
+                  facebookでログイン
+        .login-right
+          .form-log
+            = f.label :nickname
+            = f.text_field :nickname, autofocus: true, maxlength: "10"
+          .form-log
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .form-log
+            = f.label :password
+            = f.password_field :password, autocomplete: "new-password"
+          .form-log
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .form-send
+            = f.submit "新規登録"
+
+                
+
+
+

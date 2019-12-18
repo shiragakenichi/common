@@ -1,18 +1,81 @@
 .contents
   .head
     .head-left
-      .level-g
-        .icon
-          =image_tag("/images/dummyface.png", height: "50px", width: "50px")
-        .level
-          %p level
-          %p 11
-        .level-gage
+      - if user_signed_in?
+        %ul.left-cont
+          %li.head-icon
+            %i.fas.fa-paw
+          %li.head-lesson
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        %ul.left-cont
+          %li.head-icon
+            %i.fas.fa-paw
+          %li.head-lesson
+            = link_to "ログイン", new_user_session_path
+          %li.head-lesson
+            = link_to "新規登録",new_user_registration_path 
     .head-right
-      .sarch
-        .search-fele
-          %input
-        .search-btn
-          %button
-            検索する
-            
+      %ul.right-cont
+        %li.user-icon
+        %li.user-info
+          %p shiraga
+          %p LEVEL
+          %p 12
+        %li.follow-icon
+          %i.fas.fa-user-friends
+        %li.info-icon
+          %i.fas.fa-bell
+  .main
+    .main-g
+      .main-user
+        .user-icon
+          .user-main-icon
+            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+          .user-garade
+            %ul
+              %li.name-user
+                shiraga
+              %li.level-user
+                Lv.11
+        
+        .user-lank
+       
+        .user-lanking
+        .user-hist
+      .main-user
+        .user-icon
+          .user-main-icon
+            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+          .user-garade
+            %ul
+              %li.name-user
+                shiraga
+              %li.level-user
+                Lv.11
+        
+        .user-lank
+       
+        .user-lanking
+        .user-hist
+      .main-user
+        .user-icon
+          .user-main-icon
+            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+          .user-garade
+            %ul
+              %li.name-user
+                shiraga
+              %li.level-user
+                Lv.11
+        
+        .user-lank
+       
+        .user-lanking
+        .user-hist
+    .side-bar
+      .carender
+        %p.carender-name
+          学習カレンダー
+        .carender-cont
+    

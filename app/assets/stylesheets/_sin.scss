@@ -1,0 +1,148 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  //background-image: url(https://www.pakutaso.com/shared/img/thumb/KM19317022_TP_V.jpg);
+}
+
+.login-main{
+  width: 700px;
+  background: coral;
+  
+}
+.login-sub{
+  display: flex;
+}
+
+.login-left{
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+}
+
+.left-image{
+  height: 210px;
+  width: 100%;
+  text-align: center;
+}
+.image-box{
+  .new-user-image{
+    border-radius: 50%;
+  }
+}
+
+.left-exa{
+  justify-content: center;
+}
+
+.left-sns{
+  text-align: center;
+}
+
+.sns-box-facebook{
+  display:inline-block;
+  width: 200px;
+  background: chartreuse;
+  text-align: center;
+  height: 27px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom:10px;
+  display: none;
+  & a{
+    padding: 10px;
+  }
+}
+
+.sns-box-google{
+  display:inline-block;
+  width: 200px;
+  background: chartreuse;
+  text-align: center;
+  height: 27px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom:10px;
+  display: none;
+  & a{
+    padding: 10px;
+  }
+}
+
+.sns-box-twitter{
+  display:inline-block;
+  width: 200px;
+  background: chartreuse;
+  text-align: center;
+  height: 27px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom:10px;
+  display: none;
+  & a{
+    padding: 10px;
+  }
+}
+
+
+
+
+.left-sns{
+  margin-top:10px;
+  width: 320px;
+  height: 70px;
+  justify-content: space-between;
+  & a{
+    text-decoration: none;
+    color:white;
+    & i{
+      color: black;
+    }
+  }
+}
+
+.left-sns-icon{
+  display: inline-block;
+  background: darkcyan;
+  border-radius: 50%;
+  & i{
+    padding: 15px;
+    font-size: 30px;
+  }
+}
+
+.login-right{
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+}
+
+.form-log{
+  width: 80%;
+  height:100px;
+  & input{
+    width: 90%;
+    height: 40px;
+  }
+}
+
+.form-send{
+  width: 250px;
+  height: 100px;
+  background: crimson;
+  margin-bottom:30px;
+  text-align: center;
+  align-items: center;
+  & input{
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+}
+
+
+
+
+
+
+
