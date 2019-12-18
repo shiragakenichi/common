@@ -1,42 +1,133 @@
 .contents{
   width: 100vw;
-  height: 100vh;
+  height:100vh;
 }
 
 .head{
+  height:55px;
   width: 100%;
-  height: 70px;
+  background: gainsboro;
   justify-content: space-between;
-  background: blanchedalmond;
 }
 
 .head-left{
-  width: 400px;
   display: inline-block;
 }
 
+.left-cont{
+  display: flex;
+}
 
+.head-lesson{
+  padding: 15px;
+  background: gray;
+  margin-right: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.head-icon{
+  & i{
+    font-size: 35px;
+    padding: 10px ;
+  }
+}
 
 .head-right{
-  width: 400px;
+ width: 250px;
+ float: right;
+}
+
+.head-left{
+  display: inline-block;
+}
+
+.user-info{
+  display: flex;
+  margin-top:15px;
+  & p{
+    font-weight: 600;
+  }
+}
+
+.right-cont{
+  display: flex;
+  justify-content: space-between;
+  & i{
+    padding: 17px;
+    font-size: 20px;
+  }
+}
+
+.main{
+  width: 100vw;
+  height: calc(100vh - 55px);
+  overflow: scroll;
+}
+
+
+
+.side-bar{
+  height: calc(100vh - 55px);
+  width: 330px;
+  background: greenyellow;
   float: right;
 }
 
-.level{
-  display: flex;
+.carender-cont{
+  width: 300px;
+  height: 280px;
+  background: olive;
+}
+
+.main-g{
+  width: calc(100vw - 330px);
+  display: inline-block;
+  text-align: center;
+}
+
+.main-user{
+  width: 900px;
+  height: 200px;
+  background: orange;
+  display: inline-block;
+  margin: 25px auto;
+  border-radius: 40px;
+}
+
+
+.user-icon{
+  width: 40%;
+  margin-top:30px;
+  display: inline-block;
   
 }
 
-.level-g{
-  display: flex;
+.user-main-icon{
+  display: inline-block;
+  & img{
+    border-radius: 50%;
+  }
 }
 
-.head-right{
-  display: flex;
+.user-garade{
+  display: inline-block;
+  margin-bottom: 20px;
+  & ul{
+    .name-user{
+     font-size: 15px;
+    }
+    .level-user{
+      font-size:20px;
+      
+    }
+  }
 }
 
-.sarch{
-  display: contents;
+.side-line{
+  background-color: #e9edf4;
+    width: 1px;
+    height: 40px;
+    display: inline-block;
 }
-
 
