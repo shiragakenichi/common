@@ -16,16 +16,30 @@
           %li.head-lesson
             = link_to "新規登録",new_user_registration_path 
     .head-right
-      %ul.right-cont
-        %li.user-icon
-        %li.user-info
-          %p shiraga
-          %p LEVEL
-          %p 12
-        %li.follow-icon
-          %i.fas.fa-user-friends
-        %li.info-icon
-          %i.fas.fa-bell
+      - if user_signed_in?
+        %ul.right-cont
+          %li.user-icon
+          %li.user-info
+            %p.user-cuser 
+              = @user.nickname
+            %p LEVEL
+            %p 12
+          %li.follow-icon
+            %i.fas.fa-user-friends
+          %li.info-icon
+            %i.fas.fa-bell
+      - else
+        %ul.right-cont
+          %li.user-icon
+          %li.user-info
+            %p.user-cuser 
+              白髪
+            %p LEVEL
+            %p 12
+          %li.follow-icon
+            %i.fas.fa-user-friends
+          %li.info-icon
+            %i.fas.fa-bell
   .main
     .main-g
       .main-user

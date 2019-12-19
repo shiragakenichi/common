@@ -1,16 +1,21 @@
 .wrapper{
   width: 100vw;
   height: 100vh;
-  //background-image: url(https://www.pakutaso.com/shared/img/thumb/KM19317022_TP_V.jpg);
+  background-image: url(https://sozai-good.com/download?id=4508&type=1&subnumber=0&extention=jpg);
 }
 
 .login-main{
   width: 700px;
   background: coral;
+  margin: 0 auto;
   
 }
 .login-sub{
   display: flex;
+  position: absolute;
+  margin-top: 75px;
+ 
+ 
 }
 
 .login-left{
@@ -41,28 +46,34 @@
 .sns-box-facebook{
   display:inline-block;
   width: 200px;
-  background: chartreuse;
+  background: #4c5a9c;
   text-align: center;
   height: 27px;
   padding: 12px;
   border-radius: 10px;
   margin-bottom:10px;
   display: none;
+  color: white;
+  animation: hue 60s infinite linear;
   & a{
     padding: 10px;
+  }
+  & i{
+    color: white;
   }
 }
 
 .sns-box-google{
   display:inline-block;
   width: 200px;
-  background: chartreuse;
+  background: white;
   text-align: center;
   height: 27px;
   padding: 12px;
   border-radius: 10px;
   margin-bottom:10px;
   display: none;
+  color: black;
   & a{
     padding: 10px;
   }
@@ -71,15 +82,19 @@
 .sns-box-twitter{
   display:inline-block;
   width: 200px;
-  background: chartreuse;
+  background: #55acee;
   text-align: center;
   height: 27px;
   padding: 12px;
   border-radius: 10px;
   margin-bottom:10px;
   display: none;
+  color: white;
   & a{
     padding: 10px;
+  }
+  & i{
+    color: white;
   }
 }
 
@@ -100,13 +115,36 @@
   }
 }
 
-.left-sns-icon{
+.left-sns-icon-facebook{
   display: inline-block;
-  background: darkcyan;
+  background: #4c5a9c;
   border-radius: 50%;
   & i{
     padding: 15px;
     font-size: 30px;
+    color: white;
+  }
+}
+
+.left-sns-icon-google{
+  display: inline-block;
+  background: white;
+  border-radius: 50%;
+  & i{
+    padding: 15px;
+    font-size: 30px;
+    color: black;
+  }
+}
+
+.left-sns-icon-twitter{
+  display: inline-block;
+  background: #55acee;
+  border-radius: 50%;
+  & i{
+    padding: 15px;
+    font-size: 30px;
+    color: white;
   }
 }
 
@@ -126,9 +164,6 @@
 }
 
 .form-send{
-  width: 250px;
-  height: 100px;
-  background: crimson;
   margin-bottom:30px;
   text-align: center;
   align-items: center;
@@ -136,8 +171,15 @@
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
+    width: 250px;
+    height: 100px;
+    background: #60EEFF;
   }
 
+}
+
+.fail-dodo{
+  display: none;
 }
 
 

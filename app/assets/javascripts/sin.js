@@ -1,8 +1,10 @@
 $(function(){
   $(document).on('click', '.facebook-icon', function(){
     $('.sns-box-facebook') .css('display','inline-block'
-
+   
     )
+    5500,  
+    'linear'
   });
 });
 
@@ -21,5 +23,9 @@ $(function(){
     )
   });
 });
+
+
+
+
 
 
