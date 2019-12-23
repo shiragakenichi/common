@@ -20,6 +20,7 @@
   margin: 30px;
   background-color: rgba(255,255,255,0.4);
   display:inline-block;
+  overflow: scroll;
 }
 
 .message-memo{
@@ -30,6 +31,8 @@
   display: flex;
   text-align: center;
   margin-left: 50px;
+  margin-top:30px  ;
+  margin-bottom:30px ;
 }
 
 .memo-message-crian{
@@ -42,6 +45,11 @@
   width: 60px;
   height: 60px;
 }
+
+.hidden{
+  display: none;
+}
+
 
 .memo-m{
   display: inline-block;
@@ -63,7 +71,7 @@
   width: 80%;
   background: white;
   border-radius: 20px;
-  margin: 20px;
+  margin-left: 20px;
   & i{
     font-size: 38px;
   }

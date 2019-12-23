@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :user
-  root to: 'messages#index'
-  resources :users, only: [:index]
+  root to: 'users#index'
+  resources :users, only: [:index, :edit, :update]
   resources :subjects, only: [:index, :edit, :update]
+  resources :groups, only: [:new, :create, :edit, :update] do
   resources :messages, only: [:index, :create]
+  end
   resources :htmls ,only: [:index]do
     collection do
       get 'step1'
