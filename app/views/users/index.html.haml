@@ -1,95 +1,110 @@
-.contents
-  .head
-    .head-left
-      - if user_signed_in?
-        %ul.left-cont
-          %li.head-icon
-            %i.fas.fa-paw
-          %li.head-lesson
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-      - else
-        %ul.left-cont
-          %li.head-icon
-            %i.fas.fa-paw
-          %li.head-lesson
-            = link_to "ログイン", new_user_session_path
-          %li.head-lesson
-            = link_to "新規登録",new_user_registration_path 
-    .head-right
-      - if user_signed_in?
-        %ul.right-cont
-          %li.user-icon
-          %li.user-info
-            %p.user-cuser 
-              = @user.nickname
-            %p LEVEL
-            %p 12
-          %li.follow-icon
-            %i.fas.fa-user-friends
-          %li.info-icon
-            %i.fas.fa-bell
-      - else
-        %ul.right-cont
-          %li.user-icon
-          %li.user-info
-            %p.user-cuser 
-              白髪
-            %p LEVEL
-            %p 12
-          %li.follow-icon
-            %i.fas.fa-user-friends
-          %li.info-icon
-            %i.fas.fa-bell
+.conteiner
+  = render partial: "sheard/header"
   .main
-    .main-g
-      .main-user
-        .user-icon
-          .user-main-icon
-            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
-          .user-garade
-            %ul
-              %li.name-user
-                shiraga
-              %li.level-user
-                Lv.11
+    .groups
+      - @groups.each do |group|
+        .group
+          = link_to group_messages_path(group),class:"group__ive" do
+            .group__name
+              = group.name
+            .group__message
+              = group.show_last_message
+  -# .head
+  -#   .head-left
+  -#     - if user_signed_in?
+  -#       %ul.left-cont
+  -#         %li.head-icon
+  -#           %i.fas.fa-paw
+  -#         %li.head-lesson
+  -#           = link_to "ログアウト", destroy_user_session_path, method: :delete
+  -#     - else
+  -#       %ul.left-cont
+  -#         %li.head-icon
+  -#           %i.fas.fa-paw
+  -#         %li.head-lesson
+  -#           = link_to "ログイン", new_user_session_path
+  -#         %li.head-lesson
+  -#           = link_to "新規登録",new_user_registration_path 
+  -#   .head-right
+  -#     - if user_signed_in?
+  -#       %ul.right-cont
+  -#         %li.user-icon
+  -#         %li.user-info
+  -#           %p.user-cuser 
+  -#             = @user.nickname
+  -#           %p LEVEL
+  -#           %p 12
+  -#         %li.follow-icon
+  -#           = link_to new_group_path do
+  -#             %i.fas.fa-user-friends
+  -#         %li.info-icon
+  -#           %i.fas.fa-bell
+  -#     - else
+  -#       %ul.right-cont
+  -#         %li.user-icon
+  -#         %li.user-info
+  -#           %p.user-cuser 
+  -#             白髪
+  -#           %p LEVEL
+  -#           %p 12
+  -#         %li.follow-icon
+  -#           = link_to new_group_path do
+  -#             %i.fas.fa-user-friends
+  -#         %li.info-icon
+  -#           %i.fas.fa-bell
+
+  -# .main
+  -#   .main-g
+  -#     .main-user
+  -#       .user-icon
+  -#         .user-main-icon
+  -#           =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+  -#         .user-garade
+  -#           %ul
+  -#             %li.name-user
+  -#               shiraga
+  -#             %li.level-user
+  -#               Lv.11
+  -#             %li
+  -#               = link_to "最初から始める",htmls_path 
         
-        .user-lank
+  -#       .user-lank
        
-        .user-lanking
-        .user-hist
-      .main-user
-        .user-icon
-          .user-main-icon
-            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
-          .user-garade
-            %ul
-              %li.name-user
-                shiraga
-              %li.level-user
-                Lv.11
+  -#       .user-lanking
+  -#       .user-hist
+  -#     .main-user
+  -#       .user-icon
+  -#         .user-main-icon
+  -#           =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+  -#         .user-garade
+  -#           %ul
+  -#             %li.name-user
+  -#               shiraga
+  -#             %li.level-user
+  -#               Lv.11
         
-        .user-lank
+  -#       .user-lank
        
-        .user-lanking
-        .user-hist
-      .main-user
-        .user-icon
-          .user-main-icon
-            =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
-          .user-garade
-            %ul
-              %li.name-user
-                shiraga
-              %li.level-user
-                Lv.11
+  -#       .user-lanking
+  -#       .user-hist
+  -#     .main-user
+  -#       .user-icon
+  -#         .user-main-icon
+  -#           =image_tag("/images/babyFTHG7630_TP_V.jpg", height: "100px", width: "100px")
+  -#         .user-garade
+  -#           %ul
+  -#             %li.name-user
+  -#               shiraga
+  -#             %li.level-user
+  -#               Lv.11
         
-        .user-lank
+  -#       .user-lank
        
-        .user-lanking
-        .user-hist
-    .side-bar
-      .carender
-        %p.carender-name
-          学習カレンダー
-        .carender-cont
+  -#       .user-lanking
+  -#       .user-hist
+  -#   .side-bar
+  -#     .carender
+  -#       %p.carender-name
+  -#         学習カレンダー
+  -#       .carender-cont
     

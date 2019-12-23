@@ -10,7 +10,7 @@ a{
 .head{
   height:55px;
   width: 100%;
-  background: gainsboro;
+  //background: gainsboro;
   justify-content: space-between;
 }
 
@@ -24,7 +24,7 @@ a{
 
 .head-lesson{
   padding: 15px;
-  background: gray;
+  //background: gray;
   margin-right: 10px;
   width: 100px;
   text-align: center;
@@ -60,6 +60,7 @@ a{
   & i{
     padding: 17px;
     font-size: 20px;
+    color: white;
   }
 }
 
@@ -134,5 +135,10 @@ a{
     width: 1px;
     height: 40px;
     display: inline-block;
+}
+
+.group__ive{
+  color: white;
+  text-decoration: none;
 }
 

@@ -1,0 +1,47 @@
+- if message.user == current_user
+  .memo-message
+    %p.memesage
+    - if message.user.image.url nil?
+      .memo-image
+        =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+      .upper-message__user-name
+        = message.user.nickname
+      .upper-message__date
+        = message.created_at.strftime("%Y/%m/%d %H:%M")
+      .memo-m
+        %p.mmm
+          = message.content
+          = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+    - else 
+      =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+      .memo-image
+        =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+        %p.mmm
+          = message.content
+- else
+  .memo-message-crian
+    .message-memo
+      %p.memesage
+      .memo-m
+        %p.mmm
+          こんにちは
+      .memo-image
+        =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+-# .message
+-#   .upper-message
+-#     .upper-message__user-name
+-#       = message.user.nickname
+-#     .upper-message__date
+-#       = message.created_at.strftime("%Y/%m/%d %H:%M")
+-#   .lower-message
+-#     - if message.content.present?
+-#       %p.lower-message__content
+-#         = message.content
+-#       = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+
+-# - @group.users.each do |user|
+-#     .group-user-image
+-#       - if user.image.url nil?
+-#         = image_tag user.image.url ,class:"image-user-face",height:"50px", width:"50px"
+-#       - else
+-#         =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
