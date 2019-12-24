@@ -82,3 +82,5 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'dotenv-rails'
 
+gem 'omniauth-line'
+
