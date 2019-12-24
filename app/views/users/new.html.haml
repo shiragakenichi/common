@@ -1,6 +1,6 @@
 .conteiner
   = render partial: "sheard/header"
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for @user, method: :post,url: users_path do |f|
     = render "devise/shared/error_messages", resource: resource
     .login-main
       .login-sub
@@ -23,7 +23,7 @@
               .left-sns-icon-twitter
                 //= icon('fab', 'fa-twitter', class: "twitter-icon")
                 %i.fab.fa-twitter
-              = link_to user_line_omniauth_authorize_path do
+              = link_to "" do
                 .sns-box-twitter
                   %i.fab.fa-twitter
                   twitterでログイン
@@ -52,8 +52,3 @@
               %button.submit-sin
                 登録して始める
                 = f.submit "登録して始める",class:"submit-sing"
-
-                
-
-
-
