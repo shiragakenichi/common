@@ -4,13 +4,15 @@
     - if user_signed_in?
       %ul.left-cont
         %li.head-icon
-          %i.fas.fa-paw
+          = link_to root_path do
+            %i.fas.fa-paw
         %li.head-lesson
           = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
       %ul.left-cont
         %li.head-icon
-          %i.fas.fa-paw
+          = link_to root_path do
+            %i.fas.fa-paw
         %li.head-lesson
           = link_to "ログイン", new_user_session_path
         %li.head-lesson
