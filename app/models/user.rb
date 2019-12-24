@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: %i[facebook google_oauth2]
          mount_uploader :image, ImageUploader
   has_many :group_users
   has_many :messages
   has_many :groups, through: :group_users
+  has_many :sns_credentials, dependent: :destroy
 
   
   
@@ -33,5 +33,55 @@ class User < ApplicationRecord
     following_relationships.eager_load(:following)
     .select{|r|follower_ids.include? r.following_id}
     .map{|r|r.following}
+  end
+
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+
+    
+    if snscredential.present?
+      user = User.where(email: auth.info.email).first
+
+     
+      unless user.present?
+        user = User.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
+        )
+      end
+      sns = snscredential
+      
+      { user: user, sns: sns}
+
+
+    else
+      user = User.where(email: auth.info.email).first
+
+
+
+      if user.present?
+        sns = SnsCredential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+        )
+
+        { user: user, sns: sns}
+
+      else
+        user = User.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
+        )
+        sns = SnsCredential.new(
+          uid: uid,
+          provider: provider
+        )
+
+        { user: user, sns: sns}
+      end
+    end
   end
 end

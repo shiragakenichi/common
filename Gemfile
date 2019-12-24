@@ -75,3 +75,10 @@ gem 'mini_magick'
 
 gem 'pry-rails'
 
+gem 'omniauth'
+
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'dotenv-rails'
+

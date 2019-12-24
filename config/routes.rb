@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :user
+  # devise_for :users,
+  # controllers: {
+  #   sessions: 'users/sessions',
+  #   registrations: "users/registrations",
+  #   omniauth_callbacks: 'users/omniauth_callbacks'
+  # }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
   root to: 'subjects#index'
-  resources :users, only: [:index, :edit, :update, :show] do
+  resources :users, only: [:index, :edit, :update, :show, :new, :create] do
     member do
       get :following, :followers, :users_tweets
     end
