@@ -2,37 +2,36 @@
   = render partial: "sheard/header"
   .main
     .users-contents
-      - @users.each do |user|
+      - @frends.each do |frend|
         .user-blocks
           .user-blocks__image
-            - if user.image.url nil?
-              = image_tag user.image.url ,class:"image-user-face",height:"80px", width:"80px"
+            - if frend.image.url nil?
+              = image_tag frend.image.url ,class:"image-user-face",height:"80px", width:"80px"
             - else
               = image_tag("/images/dummyface.png",class:"message-user", height: "80px", width: "80px")
             .user-name
-              = link_to user_path(user.id) do
-                = user.nickname
+              = link_to user_path(frend.id) do
+                = frend.nickname
             %ul.follow-count
               %li.count-follow
-                フォロワー
+                友達になった日
               %li.follow
-                = user.followers.count
+                = frend.followers.count
             %ul.follower-cont
               %li.follower
                 フォロー
               %li.cont-follower
-                = user.followings.count
+                = frend.followings.count
             %ul.frend-cont
               %li.frend-user
                 友達
               %li.user-frendas
-                = user.matchers.count
+                = frend.matchers.count
             -# - if current_user.following?(user)
             -#   = form_with model: relationship, remote: true do |f|
             -#     %div= hidden_field_tag :following_id, @user.id
             -#     = f.submit "いいね", class: "btn btn-primary"
-            - if current_user.following?(user)
-              = render 'users/unfollow', user: user
-            - else
-              = render 'users/follow', user: user
-
+            -# - if current_user.following?(user)
+            -#   = render 'users/unfollow', user: user
+            -# - else
+            -#   = render 'users/follow', user: user

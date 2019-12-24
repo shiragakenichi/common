@@ -19,22 +19,27 @@
     - if user_signed_in?
       %ul.right-cont
         %li.user-icon
+          = link_to frends_path do
+            友達一覧
         %li.user-info
-          %p.user-cuser 
-            //= @user.nickname
+          %p.user-cuser
+            = link_to users_path do
+              = @user.nickname
           %p LEVEL
           %p 12
         %li.follow-icon
           = link_to new_group_path do
             %i.fas.fa-user-friends
         %li.info-icon
-          %i.fas.fa-bell
+          = link_to user_path(current_user.id) do
+            %i.fas.fa-bell
     - else
       %ul.right-cont
         %li.user-icon
         %li.user-info
           %p.user-cuser 
-            白髪
+            = link_to users_path do
+              白髪
           %p LEVEL
           %p 12
         %li.follow-icon
