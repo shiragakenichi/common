@@ -1,0 +1,13 @@
+.users-contents{
+  width: 80%;
+  display: flex;
+}
+
+.user-blocks{
+  width: 250px;
+  height:300px;
+  background:white;
+  &__image{
+    display: inline-block;
+  }
+}
