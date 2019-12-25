@@ -76,10 +76,9 @@ gem 'mini_magick'
 gem 'pry-rails'
 
 gem 'omniauth'
-
+gem 'omniauth-oauth2'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'dotenv-rails'
 gem 'dotenv-rails'
 
 gem 'omniauth-line'

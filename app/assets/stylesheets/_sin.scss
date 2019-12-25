@@ -5,21 +5,21 @@
 }
 
 .login-main{
-  width: 700px;
+  width: 800px;
   background: coral;
   margin: 0 auto;
   
 }
 .login-sub{
   display: flex;
-  position: absolute;
+  //position: absolute;
   margin-top: 75px;
   background-image:url("/images/a-left.jpg");
  
 }
 
 .login-left{
-  width: 50%;
+  min-width: 50%;
   height: 100%;
   display: inline-block;
 }
@@ -28,8 +28,15 @@
   height: 210px;
   width: 100%;
   text-align: center;
+  
 }
 .image-box{
+  height: 180px;
+  width: 180px;
+  background-image:url("/images/dummyface.png");
+  background-size:cover;
+  margin: 0 auto;
+  margin-top:20px;
   .new-user-image{
    margin-top:20px;
    border: solid 2px black; 
@@ -38,6 +45,7 @@
 
 .left-exa{
   justify-content: center;
+  margin: 30px 0;
 }
 
 .left-sns{
@@ -104,12 +112,32 @@
   }
 }
 
+.preview__bottom{
+  display: inline-flex;
+  justify-content: space-between;
+  color: black;
+}
+
+.preview__edit{
+  display: inline-block;
+  background: greenyellow;
+  margin-right: 20px;
+}
+
+.preview__delete{
+  display: inline-block;
+  background: #FF4F02;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
 
 
 
 .left-sns{
-  margin-top:10px;
-  width: 320px;
+  margin-top:20px;
+  min-width: 320px;
   height: 70px;
   justify-content: space-between;
   & a{
