@@ -46,7 +46,7 @@
             - else
               = image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
         .user-area
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message],id:'new-message' do |f|
         .message-rig
           .message-form
       
