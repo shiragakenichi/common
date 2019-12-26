@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index, :edit, :update]
   resources :groups, only: [:new, :create, :edit, :update] do
   resources :messages, only: [:index, :create]
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
+    end
   end
   resources :htmls ,only: [:index]do
     collection do
