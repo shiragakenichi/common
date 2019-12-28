@@ -24,6 +24,10 @@
   overflow: scroll;
 }
 
+.fa-user-edit{
+  color: #fff;
+}
+
 .message-memo{
   display: inline-flex;
 }
@@ -123,6 +127,13 @@
     & img{
     border-radius: 50%;
     }
+  }
+}
+
+.conteiner{
+  & a{
+    color: #fff;
+    text-decoration: none;
   }
 }
 

@@ -1,21 +1,3 @@
--# %h2 Log in
--# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .field
--#     = f.label :password
--#     %br/
--#     = f.password_field :password, autocomplete: "current-password"
-  -# - if devise_mapping.rememberable?
-  -#   .field
-  -#     = f.check_box :remember_me
-  -#     = f.label :remember_me
--#   .actions
--#     = f.submit "Log in"
--# = render "devise/shared/links"
-
 .conteiner
   = render partial: "sheard/header"
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -27,21 +9,21 @@
             .left-sns
               .left-sns-icon-google
                 %i.fab.fa-google
-              = link_to "",class:"sns-bb" do
+              = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
                 .sns-box-google
                   %i.fab.fa-google
                   Googleでログイン
             .left-sns
               .left-sns-icon-twitter
                 %i.fab.fa-twitter
-              = link_to "" do
+              = link_to user_line_omniauth_authorize_path do
                 .sns-box-twitter
                   %i.fab.fa-twitter
                   twitterでログイン
             .left-sns
               .left-sns-icon-facebook
                 = icon('fab', 'facebook-square', class: "facebook-icon")
-              = link_to "" do
+              = link_to user_facebook_omniauth_authorize_path do
                 .sns-box-facebook
                   %i.fab.fa-facebook-square
                   facebookでログイン

@@ -1,44 +1,12 @@
--# .block
--#   .memo-right
--#     .group-user
--#       - @group.users.each do |user|
--#         .group-user-image
--#           - if user.image.url nil?
--#             = image_tag user.image.url ,class:"image-user-face",height:"50px", width:"50px"
--#           - else
--#             = image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
--#       .user-area
--#     = form_for [@group, @message] do |f|
--#       .message-rig
--#         .message-form
-     
--#           = f.text_field :content, class: 'message-aria', placeholder: 'type a message'
--#           %label.message-image
--#             %i.fas.fa-image
--#             = f.file_field :image, class: 'hidden'
--#         .message-aria-try
--#       .message-send
--#         //%i.far.fa-paper-plane
--#         %label
--#           = f.submit 'Send', class: 'hidden'
--#           %i.fas.fa-paper-plane
--#   .memo-no-to
--#     .memo-line
--#       = render partial: 'message', collection: @messages
--#       .memo-message-crian
--#         .message-memo
--#           %p.memesage
--#           .memo-m
--#             %p.mmm
--#               こんにちは
--#           .memo-image
--#             =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
-
 .conteiner
   = render partial: "sheard/header"
   .block
     .memo-right
       .group-user
+        = link_to edit_group_path(@group.id) do
+          %i.fas.fa-user-edit
+        = link_to group_albums_path(@group.id) do
+          %i.fas.fa-camera-retro
         - @group.users.each do |user|
           .group-user-image
             - if user.image.url nil?

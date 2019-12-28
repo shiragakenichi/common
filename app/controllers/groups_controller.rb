@@ -11,6 +11,11 @@ class GroupsController < ApplicationController
     @group.users << current_user
   end
 
+  def edit
+    @user = current_user
+    @users = User.all
+  end
+
   def update
     if @group.update(group_params)
       redirect_to root_path, notice: 'グループを更新しました'

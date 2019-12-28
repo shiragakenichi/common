@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users,
-  # controllers: {
-  #   sessions: 'users/sessions',
-  #   registrations: "users/registrations",
-  #   omniauth_callbacks: 'users/omniauth_callbacks'
-  # }
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
   root to: 'subjects#index'
   resources :users, only: [:index, :edit, :update, :show, :new, :create] do
@@ -18,6 +12,7 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index, :edit, :update]
   resources :groups, only: [:new, :create, :edit, :update] do
   resources :messages, only: [:index, :create]
+  resources :albums, only:[:index, :new,:create]
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end

@@ -83,3 +83,9 @@ gem 'dotenv-rails'
 
 gem 'omniauth-line'
 
+gem  "watson-api-client"
+
+gem 'cocoon'
+
+gem "nested_form"
+
