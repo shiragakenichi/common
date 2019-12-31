@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subjects, only: [:index, :edit, :update]
-  resources :groups, only: [:new, :create, :edit, :update] do
+  resources :groups do
   resources :messages, only: [:index, :create]
-  resources :albums, only:[:index, :new,:create]
+  resources :albums
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end

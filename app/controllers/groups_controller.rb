@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:edit, :update, :destroy]
   def index
-    @user = current_user
   end
 
   def new
@@ -14,6 +13,15 @@ class GroupsController < ApplicationController
   def edit
     @user = current_user
     @users = User.all
+  end
+
+  def destroy
+  @user = current_user
+  current_user.ungroup!(@user,@group)
+  amessage = @user.nickname + 'が退出しました'
+  @message = Message.new(content: amessage , group_id: @group.id , user_id: @user.id)
+  @message.save
+  redirect_to root_path
   end
 
   def update

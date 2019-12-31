@@ -1,7 +1,9 @@
 class AlbumsController < ApplicationController
   before_action :set_group
+  before_action :set_album, only: [:show,  :edit, :destroy, :update ]
 
   def index
+    @albums = @group.albums
   end
 
   def new
@@ -49,9 +51,9 @@ class AlbumsController < ApplicationController
         # # end
         @user = current_user
         amessage = @user.nickname + 'がアルバムを作成しました'
-        @message = Message.new(content: amessage , group_id: @group.id , user_id: @user.id )
+        @message = Message.new(content: amessage , group_id: @group.id , user_id: @user.id,efect_id: @album.id)
         @message.save
-        format.html{redirect_to root_path}
+        format.html{redirect_to group_messages_path(@group.id)}
       else
         @album.images.build
         format.html{render action: 'new'}
@@ -59,8 +61,12 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def show
+    @photos = @album.images
+    @picture = Image.new
+  end
+
   def edit
-    @album = Album.find(params[:album_id])
   end
 
 
@@ -76,6 +82,10 @@ class AlbumsController < ApplicationController
     private
     def set_group
       @group = Group.find(params[:group_id])
+    end
+
+    def set_album
+      @album = Album.find(params[:id])
     end
 
     def photo_params

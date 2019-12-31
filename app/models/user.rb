@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: %i[facebook google_oauth2 line]
          mount_uploader :image, ImageUploader
-  has_many :group_users
+  has_many :group_users,dependent: :destroy
   has_many :messages
   has_many :groups, through: :group_users
   has_many :sns_credentials, dependent: :destroy
@@ -24,8 +24,13 @@ class User < ApplicationRecord
     following_relationships.create!(following_id: other_user.id)
   end
 
+
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
+  end
+
+  def ungroup!(user,other_group)
+    group_users.find_by(user_id:user.id,group_id: other_group.id).destroy
   end
 
   def matchers
