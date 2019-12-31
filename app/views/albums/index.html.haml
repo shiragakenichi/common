@@ -2,4 +2,13 @@
   = render partial: "sheard/header"
   = link_to new_group_album_path(@group.id) do
     アルバムを作る
-  
+  - @albums.each do |album|
+    = link_to group_album_path(@group.id,album.id) do
+      = album.name
+      .image-block
+        -if album.images.length != 0
+          - albums.images.each do |photo|
+            = image_tag photo.images.first.image.url, class:"item-image",size: "188x188"
+        - else
+          = image_tag "", class:"item-image",size: "188x188"
+       

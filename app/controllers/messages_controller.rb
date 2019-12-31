@@ -2,9 +2,13 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
+   
+   if @group.users.find_by(id: current_user.id)
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    @user = current_user
+   else
+   redirect_to root_path
+   end
   end
 
   def create

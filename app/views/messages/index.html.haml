@@ -3,6 +3,8 @@
   .block
     .memo-right
       .group-user
+        = link_to group_path(@group.id), method: :delete do
+          %i.fas.fa-sign-out-alt
         = link_to edit_group_path(@group.id) do
           %i.fas.fa-user-edit
         = link_to group_albums_path(@group.id) do
