@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
   root to: 'subjects#index'
-  resources :users, only: [:index, :edit, :update, :show, :new, :create] do
+  resources :users do
     member do
+      get :newsns
       get :following, :followers, :users_tweets
+    end
+    resources :profiles, only:[:new,:create]
+  end
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step1sns'
+      get 'step2'
+      get 'step3'
     end
   end
   resources :frends, only: [:index]

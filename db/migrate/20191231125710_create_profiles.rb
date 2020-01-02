@@ -4,7 +4,9 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.text :introduction
       t.string :gender
       t.string :prefectures
-      t.string :age
+      t.string :birth_year
+      t.string :birth_month
+      t.string :birth_day
       t.references :user, foreign_key: true
       t.timestamps
     end

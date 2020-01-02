@@ -67,7 +67,9 @@ ActiveRecord::Schema.define(version: 2019_12_31_125710) do
     t.text "introduction"
     t.string "gender"
     t.string "prefectures"
-    t.string "age"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

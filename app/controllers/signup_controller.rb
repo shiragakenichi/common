@@ -1,15 +1,10 @@
-class UsersController < ApplicationController
-  def index
-    @users = User.all
-    @user = current_user
-    @groups = @user.groups
-  end
+class SignupController < ApplicationController
   
-  def new
+  def step1
     @user = User.new
   end
 
-  def newsns
+  def step1sns
     if session[:password_confirmation]
       
       @user = User.new(
@@ -22,12 +17,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
+  def step2
+    @profile = Profile.new
   end
 
   def create
-    binding.pry
     @user = User.create(user_params)
     sign_in(@user) unless user_signed_in?
     if user_signed_in?
@@ -36,27 +30,7 @@ class UsersController < ApplicationController
       redirect to new_user_path
     end
   end
-
-  def show
-    @user = User.find(params[:id])
-    @relationship = Relationship.new
-  end
-
-  def following
-    @title = "フォロー"
-    @user = User.find(params[:id])
-    @users = @user.followings
-    render 'show_follow'
-  end
-
-  def followers
-    @title = "フォロワー"
-    @user = User.find(params[:id])
-    @users = @user.followers
-    render 'show_follow'
-  end
-
-
+  
   private
   def user_params
     params.require(:user).permit(
@@ -66,4 +40,5 @@ class UsersController < ApplicationController
       :password_confirmation
   )
   end
+
 end
