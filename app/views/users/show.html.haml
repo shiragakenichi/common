@@ -1,15 +1,60 @@
--# %span.follow-wrapper{:id => "user_#{@user.id}"}
--#   = render 'follow_form', user: @user if signed_in?
--# %h4
--#   = render 'users/stats'
-.text-center
-    //= image_tag @user.image.url, class: "avatar"
--# .text-center#user-description
--#     = @user.nickname
--#     - if user_signed_in?
--#         #follow_form
--#             - if current_user.following?(@user)
--#                 #liked.btn.btn-default いいね済
--#             - else
--#                 = render 'follow', {relationship: @relationship}
--#     %br= @user.profile
+.conteiner
+  = render partial: "sheard/header"
+  .main-block
+    .profile-main
+      .profile-side
+        .profile-image-box
+          - if @user.image.url nil?
+            = image_tag @user.image.url ,class:"image-user-face",height:"80px", width:"80px"
+          - else
+            = image_tag("/images/dummyface.png",class:"message-user", height: "80px", width: "80px")
+        .profile-relative-box
+          %ul.profile-relati
+            %li.profile-nickname
+              = @user.nickname
+          %ul.profile-relati
+            %li.profile-count
+              フォロワー
+            %li.profile-followers
+              = @user.followers.count
+          %ul.profile-relati
+            %li.profile-count
+              フォロー
+            %li.profile-followers
+              = @user.followings.count
+          %ul.profile-relati
+            %li.profile-count
+              友達
+            %li.profile-followers
+              = @user.matchers.count
+      .profile-text
+        .profile-xam
+          %p.profile-xam__are
+            よろしくお願いいたします。
+        .profile-web-site
+          %p
+            http:instagram.jp
+        .profile-jend
+          %p
+            男
+        .profile-pre
+          %p
+            大阪
+        .profile-age
+          %p
+            25
+      .profile-edit-btn
+        - if @user.id == current_user.id
+          = link_to edit_user_path do
+            編集する
+        - else
+          - if current_user.following?(user)
+            = render 'users/unfollow', user: user
+          - else
+            = render 'users/follow', user: user
+
+
+
+          
+
+    

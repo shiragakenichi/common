@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :groups, through: :group_users
   has_many :sns_credentials, dependent: :destroy
+  has_one  :profile,dependent: :destroy
 
   
   

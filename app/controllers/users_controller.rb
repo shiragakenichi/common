@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.create(user_params)
     sign_in(@user) unless user_signed_in?

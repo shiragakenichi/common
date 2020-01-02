@@ -1,0 +1,19 @@
+.conteiner
+  = render partial: "sheard/header"
+  .main-block
+    = form_for @user do |f|
+      .profile-main
+        .profile-side
+          .profile-image-box
+            .left-image
+              = f.label :image do
+                = f.file_field :image,class:"fail-dodo"
+                .image-box
+          .profile-relative-box
+            %ul.profile-relati
+              %li.profile-nickname
+                = f.text_field :nickname, autofocus: true, maxlength: "10"
+            .profile-email
+              = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+              

@@ -1,0 +1,38 @@
+.main-block{
+  width: 100%;
+  height:calc(100vh - 55px);
+  overflow: scroll;
+  .profile-main{
+    .profile-side{
+      width: 500px;
+      height: 150px;
+      background: #fff;
+      display: flex;
+      .profile-relative-box{
+        display: flex;
+        .profile-relati{
+          margin: 10px;
+          text-align: center;
+        }
+      }
+    }
+    .profile-text{
+      margin-top: 30px;
+      max-height: 500px;
+      overflow: scroll;
+      // background: #fff;
+      width: 500px;
+      border: solid 2px #fff;
+      .profile-xam{
+        & p{
+          border-radius: 10px;
+          margin: 10px;
+          border: solid 1px #fff;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+
