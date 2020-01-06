@@ -16,7 +16,8 @@
         %li.head-lesson
           = link_to "ログイン", new_user_session_path
         %li.head-lesson
-          = link_to "新規登録",new_user_registration_path 
+          -# = link_to "新規登録",new_user_registration_path 
+          = link_to "新規登録",step1_signup_index_path 
   .head-right
     - if user_signed_in?
       %ul.right-cont

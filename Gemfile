@@ -89,3 +89,5 @@ gem 'cocoon'
 
 gem "nested_form"
 
+gem 'active_hash'
+

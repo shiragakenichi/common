@@ -4,8 +4,12 @@ class UsersController < ApplicationController
     @user = current_user
     @groups = @user.groups
   end
-
+  
   def new
+    @user = User.new
+  end
+
+  def newsns
     if session[:password_confirmation]
       
       @user = User.new(
@@ -18,15 +22,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def create
+    binding.pry
     @user = User.create(user_params)
     sign_in(@user) unless user_signed_in?
-    redirect to root_path
+    if user_signed_in?
+      redirect to new_user_profile_path
+    else
+      redirect to new_user_path
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    @profile = @user.profile
+    age = @profile.birth_year + @profile.birth_month + @profile.birth_day
+    ages = Date.today.strftime("%Y%m%d").to_i - age.to_i 
+    @age = ages/10000
     @relationship = Relationship.new
+
   end
 
   def following

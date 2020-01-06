@@ -1,6 +1,6 @@
 .conteiner
   = render partial: "sheard/header"
-  = form_for @user ,url:userras_path do |f|
+  = form_for @user, url:signup_index_path do |f|
     = render "devise/shared/error_messages", resource: resource
     .login-main
       .login-sub

@@ -1,6 +1,6 @@
 .conteiner
   = render partial: "sheard/header"
-  = form_for @user ,url:userras_path do |f|
+  = form_for @user, method: :post,url: users_path do |f|
     = render "devise/shared/error_messages", resource: resource
     .login-main
       .login-sub
@@ -9,6 +9,7 @@
             = f.label :image do
               = f.file_field :image,class:"fail-dodo"
               .image-box
+                =image_tag("/images/dummyface.png",class:"new-user-image", height: "180px", width: "180px")
           .left-exa
             .left-sns
               .left-sns-icon-google
@@ -22,7 +23,7 @@
               .left-sns-icon-twitter
                 //= icon('fab', 'fa-twitter', class: "twitter-icon")
                 %i.fab.fa-twitter
-              = link_to user_line_omniauth_authorize_path do
+              = link_to "" do
                 .sns-box-twitter
                   %i.fab.fa-twitter
                   twitterでログイン
