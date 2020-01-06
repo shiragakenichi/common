@@ -21,15 +21,55 @@ class SignupController < ApplicationController
     @profile = Profile.new
   end
 
-  def create
-    @user = User.create(user_params)
-    sign_in(@user) unless user_signed_in?
-    if user_signed_in?
-      redirect to new_user_profile_path
+  def step3
+    @user = current_user
+    @interest = Interest.new
+    @myinterests = @user.interests
+    if @user.interests.blank?
+      @interests = Interest.all
     else
-      redirect to new_user_path
+      ints= InterestUser.where(user_id:@user.id).select(:interest_id)
+      @interests = Interest.where.not(id: ints)
     end
   end
+
+  def step3create
+    @interest = Interest.create(interest_params)
+    @int = InterestUser.create(user_id:current_user.id, interest_id:@interest.id)
+    redirect_to step3_signup_index_path
+  end
+
+  def create
+    @user = User.create(user_params)
+      if @user.save
+        sign_in(@user) unless user_signed_in?
+        if user_signed_in?
+          redirect_to step2_signup_index_path
+        else
+          redirect_to step1_signup_index_path
+        end
+      else
+        redirect_to step1_signup_index_path
+      end
+  end
+
+  def step2create
+    @profile = Profile.create(profile_params)
+    redirect_to step3_signup_index_path
+  end
+
+  def tag
+    @interest = Interest.find(params[:id])
+    current_user.tagfllow!(current_user,@interest)
+    redirect_to step3_signup_index_path
+  end
+
+  def untag
+    @interest = Interest.find(params[:id])
+    current_user.untagfllow!(current_user,@interest)
+    redirect_to step3_signup_index_path
+  end
+
   
   private
   def user_params
@@ -40,5 +80,24 @@ class SignupController < ApplicationController
       :password_confirmation
   )
   end
+
+  def profile_params
+    params.require(:profile).permit(
+      :introduction, 
+      :gender, 
+      :prefectures, 
+      :birth_year,
+      :birth_month,
+      :birth_day
+    ).merge(user_id: current_user.id)
+  end
+
+  def interest_params
+    params.require(:interest).permit(
+      :tag,
+      :imagelist
+    )
+  end
+
 
 end

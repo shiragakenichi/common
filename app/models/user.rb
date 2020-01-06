@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :sns_credentials, dependent: :destroy
   has_one  :profile,dependent: :destroy
+  has_many :interest_users,dependent: :destroy
+  has_many :interests, through: :interest_users
 
   
   
@@ -89,5 +91,13 @@ class User < ApplicationRecord
         { user: user, sns: sns}
       end
     end
+  end
+
+  def tagfllow!(user,other_interest)
+    interest_users.create!(user_id:user.id,interest_id: other_interest.id)
+  end
+  
+  def untagfllow!(user,other_interest)
+    interest_users.find_by(user_id:user.id,interest_id: other_interest.id).destroy
   end
 end

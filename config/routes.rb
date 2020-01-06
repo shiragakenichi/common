@@ -13,8 +13,16 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step1sns'
       get 'step2'
+      post 'step2create'
       get 'step3'
+      post 'step3create'
+      
     end
+    member do
+      post 'tag'
+      delete 'untag'
+    end
+
   end
   resources :frends, only: [:index]
   resources :relationships, only: [:create, :destroy]

@@ -39,7 +39,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile = @user.profile
+    age = @profile.birth_year + @profile.birth_month + @profile.birth_day
+    ages = Date.today.strftime("%Y%m%d").to_i - age.to_i 
+    @age = ages/10000
     @relationship = Relationship.new
+
   end
 
   def following

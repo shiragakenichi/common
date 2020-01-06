@@ -30,7 +30,7 @@
       .profile-text
         .profile-xam
           %p.profile-xam__are
-            よろしくお願いいたします。
+            = @profile.introduction
         .profile-web-site
           %p
             http:instagram.jp
@@ -39,10 +39,10 @@
             男
         .profile-pre
           %p
-            大阪
+            = @profile.prefectures
         .profile-age
           %p
-            25
+            =  @age
       .profile-edit-btn
         - if @user.id == current_user.id
           = link_to edit_user_path do
@@ -52,6 +52,7 @@
             = render 'users/unfollow', user: user
           - else
             = render 'users/follow', user: user
+         
 
 
 
