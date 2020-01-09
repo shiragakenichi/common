@@ -18,7 +18,7 @@ class SignupController < ApplicationController
   end
 
   def step2
-    @profile = Profile.new
+    @profile = current_user.profile
   end
 
   def step3
@@ -42,6 +42,7 @@ class SignupController < ApplicationController
   def create
     @user = User.create(user_params)
       if @user.save
+        Profile.create(user_id:@user.id,gender:'---', prefectures:'---',birth_year:'---',birth_month:'---',birth_day:'---')
         sign_in(@user) unless user_signed_in?
         if user_signed_in?
           redirect_to step2_signup_index_path
@@ -54,6 +55,7 @@ class SignupController < ApplicationController
   end
 
   def step2create
+    current_user.profile.destroy
     @profile = Profile.create(profile_params)
     redirect_to step3_signup_index_path
   end
@@ -74,7 +76,8 @@ class SignupController < ApplicationController
   private
   def user_params
     params.require(:user).permit(
-      :nickname, 
+      :nickname,
+      :image ,
       :email, 
       :password, 
       :password_confirmation
