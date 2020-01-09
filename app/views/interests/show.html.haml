@@ -1,0 +1,42 @@
+.conteiner
+  = render partial: "sheard/header"
+  .oooo
+    .ooo-left
+      .left-ooo-box
+        - if @interest.id <= 10   
+          = image_tag(@interest.image ,height: "300px")
+        - else
+          -if @interest.imagelist.url nil?
+            =image_tag(@interest.imagelist.url ,height: "300px")
+          - else
+            = image_tag("",height: "80px")
+      .left-ooo-main
+        %p.ooo-tag
+          = @interest.tag
+      .ooo-right
+        .syozoku-user
+          %p.syozoku-all
+            タグ付けユーザー数：
+            = @interest.users.count
+    .ppp-right
+      .user-ppp-box
+        - @interest.users.each do |user|
+          = link_to user_path(user.id) do
+            .ppp-user
+              - if user.image.url nil?
+                = image_tag(user.image.url , height:"100px",class:'ooo-user-image')
+              - else
+                = image_tag("/images/dummyface.png",height: "80px")
+              %p.ppp-user__nickname
+                = user.nickname
+      .tag-duke
+        %p.tagzuke-user
+          - if current_user.mytag?(current_user,@interest)
+            = link_to untag_interest_path(@interest.id), method: :delete do
+              このタグを外す
+          - else
+            = link_to tag_interest_path(@interest.id), method: :post do
+              このタグを付ける
+    
+    
+      

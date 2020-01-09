@@ -65,7 +65,6 @@ class UsersController < ApplicationController
     end
   end
 
-  hjk
 
   def taguser
     @interest = Interest.find(params[:id])
@@ -83,6 +82,12 @@ class UsersController < ApplicationController
     @interest = Interest.find(params[:id])
     current_user.untagfllow!(current_user,@interest)
     redirect_to tag_user_path(current_user.id)
+  end
+
+  def search
+    # name = User.search(params[:keyword])
+    # gend = User.gsearch(params[:gender])
+    @users = User.gsearch(params[:gender])
   end
 
 

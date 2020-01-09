@@ -1,0 +1,32 @@
+.user-blocks
+  .user-blocks__image
+    - if user.image.url nil?
+      = image_tag user.image.url ,class:"image-user-face",height:"80px", width:"80px"
+    - else
+      = image_tag("/images/dummyface.png",class:"message-user", height: "80px", width: "80px")
+    .user-name
+      = link_to user_path(user.id) do
+        = user.nickname
+    %ul.follow-count
+      %li.count-follow
+        フォロワー
+      %li.follow
+        = user.followers.count
+    %ul.follower-cont
+      %li.follower
+        フォロー
+      %li.cont-follower
+        = user.followings.count
+    %ul.frend-cont
+      %li.frend-user
+        友達
+      %li.user-frendas
+        = user.matchers.count
+    -# - if current_user.following?(user)
+    -#   = form_with model: relationship, remote: true do |f|
+    -#     %div= hidden_field_tag :following_id, @user.id
+    -#     = f.submit "いいね", class: "btn btn-primary"
+    - if current_user.following?(user)
+      = render 'users/unfollow', user: user
+    - else
+      = render 'users/follow', user: user

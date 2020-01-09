@@ -33,6 +33,7 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: other_user.id).destroy
   end
 
+  
   def ungroup!(user,other_group)
     group_users.find_by(user_id:user.id,group_id: other_group.id).destroy
   end
@@ -43,6 +44,16 @@ class User < ApplicationRecord
 
   # def unalrt!(group,user)
   #   Alert.find_by(group_id:group.id,user_id:user.id).destroy
+  # end
+
+  def self.search(search)
+    return User.all unless search
+    User.where('nickname LIKE(?)', "%#{search}%")
+  end
+
+  # def self.gsearch(gsearch)
+  #   # return User.all unless gsearch
+  #   # User.where(Profile.where(gender:gsearch).select(:user_id))
   # end
 
   def machi
@@ -121,5 +132,9 @@ class User < ApplicationRecord
   
   def untagfllow!(user,other_interest)
     interest_users.find_by(user_id:user.id,interest_id: other_interest.id).destroy
+  end
+
+  def mytag?(user,other_interest)
+    interest_users.find_by(user_id:user.id,interest_id:other_interest.id)
   end
 end
