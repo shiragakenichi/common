@@ -10,10 +10,8 @@ Rails.application.routes.draw do
       post 'taguser'
       post 'tagcreate'
       delete 'untag'
+      get 'tagsearch'
       get :following, :followers, :users_tweets
-    end
-    collection do
-      get 'search'
     end
     resources :profiles, only:[:new,:create]
   end
@@ -22,7 +20,6 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step1sns'
       get 'step2'
-      post 'step2create'
       get 'step3'
       post 'step3create'
       

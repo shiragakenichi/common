@@ -84,11 +84,24 @@ class UsersController < ApplicationController
     redirect_to tag_user_path(current_user.id)
   end
 
-  def search
-    # name = User.search(params[:keyword])
-    # gend = User.gsearch(params[:gender])
-    @users = User.gsearch(params[:gender])
+  def tagsearch
+    @user = User.find(params[:id])
+    if @user == current_user
+      @interest = Interest.new
+      @myinterests = @user.interests
+      if @user.interests.blank?
+        @interests = Interest.tsearch(params[:keyword])
+      else
+        ints= InterestUser.where(user_id:@user.id).select(:interest_id)
+        sss = Interest.tsearch(params[:keyword])
+        @interests = sss.where.not(id: ints)
+      end
+    else
+      redirect_to user_path(@user.id)
+    end
   end
+
+  
 
 
   def following

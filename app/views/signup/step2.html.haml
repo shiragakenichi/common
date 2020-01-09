@@ -1,7 +1,7 @@
 .conteiner
   = render partial: "sheard/header"
   .login-main
-    = form_for @profile, method: :post,url:step2create_signup_index_path do |f|
+    = form_for @profile, method: :patch ,url:signup_path(@profile.id) do |f|
       .login-sub
         .login-profille-left
           .login-introduction

@@ -7,13 +7,18 @@
           %p.contn-left-head-fo
             興味のあるタグを選択してください
         .tag-select
-          .tag-serch
-            %ul
-              %li
-                %input
-              %li
-                %button
-                  タグを検索する
+          = form_with(url: tagsearch_user_path(@user.id), local: true, method: :get, class: "search-form") do |form|
+            = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+            = form.submit "検索", class: "search-btn"
+            -# .tag-serch
+            -#   %ul
+            -#     %li
+            -#       = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+            -#     %li
+            -#       %label
+            -#         = form.submit "検索", class: "hidden"
+            -#         %button
+            -#           タグを検索する
         .tag-box
           - @interests.each do |i|
             = link_to taguser_user_path(i.id),method: :post do
