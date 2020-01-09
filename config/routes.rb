@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
   root to: 'subjects#index'
+  namespace :users do
+    resources :searches, only: :index
+  end
   resources :users do
     member do
       get 'tag'
@@ -8,6 +11,9 @@ Rails.application.routes.draw do
       post 'tagcreate'
       delete 'untag'
       get :following, :followers, :users_tweets
+    end
+    collection do
+      get 'search'
     end
     resources :profiles, only:[:new,:create]
   end
@@ -27,7 +33,12 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :interests , only:[:index, :show]
+  resources :interests , only:[:index, :show] do
+    member do
+      post 'tag'
+      delete 'untag'
+    end
+  end
   resources :frends, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
@@ -47,14 +58,14 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :htmls ,only: [:index]do
-    collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
-      get 'step5'
-      get 'step6'
-    end
-  end
+  # resources :htmls ,only: [:index]do
+  #   collection do
+  #     get 'step1'
+  #     get 'step2'
+  #     get 'step3'
+  #     get 'step4'
+  #     get 'step5'
+  #     get 'step6'
+  #   end
+  # end
 end
