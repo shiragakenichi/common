@@ -54,11 +54,12 @@ class SignupController < ApplicationController
       end
   end
 
-  def step2create
-    current_user.profile.destroy
-    @profile = Profile.create(profile_params)
+  def update
+    @interest = Profile.find(params[:id])
+    @interest.update(profile_params)
     redirect_to step3_signup_index_path
   end
+
 
   def tag
     @interest = Interest.find(params[:id])
