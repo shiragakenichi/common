@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root to: 'subjects#index'
   resources :users do
     member do
-      get :newsns
+      get 'tag'
+      post 'taguser'
+      post 'tagcreate'
+      delete 'untag'
       get :following, :followers, :users_tweets
     end
     resources :profiles, only:[:new,:create]
@@ -24,15 +27,24 @@ Rails.application.routes.draw do
     end
 
   end
+  resources :interests , only:[:index, :show]
   resources :frends, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subjects, only: [:index, :edit, :update]
   resources :groups do
+    member do
+      post 'join'
+    end
   resources :messages, only: [:index, :create]
   resources :albums
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
+    end
+    resources  :alerts, only: [:destroy] do
+      member do
+      post 'syoutai'
+      end
     end
   end
   resources :htmls ,only: [:index]do

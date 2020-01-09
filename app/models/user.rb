@@ -5,6 +5,7 @@ class User < ApplicationRecord
          mount_uploader :image, ImageUploader
   has_many :group_users,dependent: :destroy
   has_many :messages
+  has_many :alert
   has_many :groups, through: :group_users
   has_many :sns_credentials, dependent: :destroy
   has_one  :profile,dependent: :destroy
@@ -36,12 +37,33 @@ class User < ApplicationRecord
     group_users.find_by(user_id:user.id,group_id: other_group.id).destroy
   end
 
+  def crgroup!(group,user)
+    GroupUser.create(group_id:group.id,user_id:user.id)
+  end
+
+  # def unalrt!(group,user)
+  #   Alert.find_by(group_id:group.id,user_id:user.id).destroy
+  # end
+
+  def machi
+    ints= Relationship.all.select(:following_id)
+    p = Relationship.all.where(id:ints).select(:id)
+    ps = Relationship.where(follower_id:p)
+  end
   def matchers
     follower_ids = following_relationships.pluck(:follower_id)
     following_relationships.eager_load(:following)
     .select{|r|follower_ids.include? r.following_id}
     .map{|r|r.following}
   end
+
+  # def matchers
+  #   p = User.where(id: Relationship.all.select(:follower_id))
+  #   r = Relationship.p
+  #    .where(id: Relationship.all.select(:following_id))
+  # end
+  
+  
 
   def self.find_oauth(auth)
     uid = auth.uid

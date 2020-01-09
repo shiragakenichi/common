@@ -21,15 +21,23 @@
   .head-right
     - if user_signed_in?
       %ul.right-cont
+        %li.curent-info
+          %li.user-infomation
+            フォロワー数:
+            = current_user.followers.count          
+          %li.user-infomation
+            フォロー数
+            = current_user.followers.count
+          %li.user-infomation
+            友達数
+            = current_user.followers.where(id:Relationship.where(follower_id:current_user.id).select(:following_id)).count
         %li.user-icon
           = link_to frends_path do
             友達一覧
         %li.user-info
-          %p.user-cuser
+          %li.user-cuser
             = link_to users_path do
               = current_user.nickname
-          %p LEVEL
-          %p 12
         %li.follow-icon
           = link_to new_group_path do
             %i.fas.fa-user-friends
@@ -41,12 +49,12 @@
         %li.user-icon
         %li.user-info
           %p.user-cuser 
-            = link_to users_path do
+            = link_to '' do
               白髪
           %p LEVEL
           %p 12
         %li.follow-icon
-          = link_to new_group_path do
+          = link_to '' do
             %i.fas.fa-user-friends
         %li.info-icon
           %i.fas.fa-bell

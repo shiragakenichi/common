@@ -48,10 +48,36 @@
           = link_to edit_user_path do
             編集する
         - else
-          - if current_user.following?(user)
-            = render 'users/unfollow', user: user
+          - if current_user.following?(@user)
+            = render 'users/unfollow', user: @user
           - else
-            = render 'users/follow', user: user
+            = render 'users/follow', user: @user
+    .contn-right
+      .contn-right-head
+        %p.contn-right-head-fo
+          myタグ
+        - if @user.id == current_user.id
+          %p
+            = link_to tag_user_path(@user.id) do
+              タグを追加する
+        - else
+      .contn-right-my
+        - @interests.each do |my|
+          = link_to interest_path(my.id)  do
+            .interests-block
+              .interests-block-image
+                - if my.id <= 10   
+                  = image_tag(my.image ,height: "80px")
+                - else
+                  -if my.imagelist.url nil?
+                    =image_tag(my.imagelist.url ,height: "80px")
+                  - else
+                    = image_tag("",height: "80px")
+              .interests-block-name
+                = my.tag
+      
+    
+      
          
 
 
