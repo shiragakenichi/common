@@ -11,7 +11,7 @@
       %i.fas.fa-paper-plane
     = f.fields_for :images do |image|
       = image.label :image, class: 'sell-image' do
-        = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+        = image.file_field :image, multiple: true, name: 'images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0
       -# = image.label :image, class: 'sell-image' do
       -#   = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0 
       -# = image.label :image, class: 'sell-image' do

@@ -1,16 +1,44 @@
 .conteiner
   = render partial: "sheard/header"
   .main
-    -if user_signed_in?
-      .groups
-        - @groups.each do |group|
-          .group
-            = link_to group_messages_path(group),class:"group__ive" do
-              .group__name
-                = group.name
-              .group__message
-                = group.show_last_message
-    -else
+    .side
+      -if user_signed_in?
+        .groups
+          - @groups.each do |group|
+            .group
+              = link_to group_messages_path(group),class:"group__ive" do
+                .group__name
+                  = group.name
+                .group__message
+                  = group.show_last_message
+      -else
+    .coo
+      .alert-message-head
+        = @sinsei.count
+        人から友達申請が来ています。
+      .alert-message-main
+      - @sinsei.each do |si|
+        .sinsei-box
+          %p
+            = link_to user_path(si.id),class:'sinsei-user' do
+              = si.nickname
+            さんから友達申請が届いています。
+      .doo
+        .doo-head
+          = @user.alert.count
+          件のグループ招待があります。
+        .doo-main
+          - @user.alert.each do |a|
+            = User.find(a.efect_id).nickname
+            から
+            = Group.find(a.group_id).name
+            に招待されています。
+            = link_to join_group_path(a.group_id), method: :post do
+              参加する 
+
+
+
+    
   -# .head
   -#   .head-left
   -#     - if user_signed_in?

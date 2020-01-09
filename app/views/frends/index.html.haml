@@ -4,6 +4,7 @@
     .users-contents
       - @frends.each do |frend|
         .user-blocks
+          = link_to 
           .user-blocks__image
             - if frend.image.url nil?
               = image_tag frend.image.url ,class:"image-user-face",height:"80px", width:"80px"

@@ -42,11 +42,20 @@ class AlbumsController < ApplicationController
   # end
 
   def create
+    puts album_params
+    # .merge(images: photo_params[:images].collect{|p| {image: p}})
     @album = Album.new(album_params)
     respond_to do |format|
       if @album.save
+        # print "photo_params[:images]"
+        # puts photo_params[:images]
+        # @album.images.create(image: photo_params[:images])
           # params[:images][:image].each do |a|
-
+         
+          photo_params[:images].each do |a|
+            image = a
+            @album.images.create(image: image)
+          end
           #  @image = @album.images.create!(:image => a, :album_id => @album.id)
         # # end
         @user = current_user
@@ -70,12 +79,6 @@ class AlbumsController < ApplicationController
   end
 
 
-  def upload_file(m,image)
-    printer = m
-    @product_photo = printer.create(photo_params)
-    return @product_photo
-  end
-
  
 
 
@@ -89,14 +92,14 @@ class AlbumsController < ApplicationController
     end
 
     def photo_params
-      params.require(:images).permit(:image)
+      params.require(:images).permit(images: [])
     end
 
 
     def album_params
       params.require(:album).permit(
-        :name,
-        images_attributes: [:images])
+        :name)
       .merge(group_id: @group.id)
+      # images_attributes: [:images]
     end
 end

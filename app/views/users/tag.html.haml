@@ -1,0 +1,74 @@
+.conteiner
+  = render partial: "sheard/header"
+  .int-contn-oo
+    .int-contn
+      .contn-left
+        .contn-left-head
+          %p.contn-left-head-fo
+            興味のあるタグを選択してください
+        .tag-select
+          .tag-serch
+            %ul
+              %li
+                %input
+              %li
+                %button
+                  タグを検索する
+        .tag-box
+          - @interests.each do |i|
+            = link_to taguser_user_path(i.id),method: :post do
+              .interests-block
+                .interests-block-image
+                  - if i.id <= 10   
+                    = image_tag(i.image ,height: "80px")
+                  - else
+                    -if i.imagelist.url nil?
+                      =image_tag(i.imagelist.url ,height: "80px")
+                    - else
+                      = image_tag("",height: "80px")
+                .interests-block-name
+                  = i.tag
+                
+                    
+                    
+            
+      .contn-right
+        .contn-right-head
+          %p.contn-right-head-fo
+            myタグ
+        .contn-right-my
+          - @myinterests.each do |my|
+            = link_to untag_user_path(my.id),method: :delete  do
+              .interests-block
+                .interests-block-image
+                  - if my.id <= 10   
+                    = image_tag(my.image ,height: "80px")
+                  - else
+                    -if my.imagelist.url nil?
+                      =image_tag(my.imagelist.url ,height: "80px")
+                    - else
+                      = image_tag("",height: "80px")
+                .interests-block-name
+                  = my.tag
+      .sukip-are
+        .tag-select
+          .new-tag-hed
+            %P.new-tag-name
+              新しいタグを作成する
+          .tag-new
+            = form_for @interest, method: :post,url:tagcreate_user_path(current_user.id) do |f|
+              %ul.tag-srezu
+                %li
+                  = f.text_field :tag, placeholder: 'タグ名を入力してください'
+                %li
+                  %label.file-tag-label
+                    %i.fas.fa-camera-retro
+                    = f.file_field :imagelist, class:'hidden'
+                %li.tag-send-are
+                  %label
+                    %button
+                      タグを作成する
+                    = f.submit class:'hidden'
+        %p
+          = link_to root_path do
+            アプリを始める
