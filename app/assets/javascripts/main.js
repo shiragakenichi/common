@@ -6,24 +6,56 @@ $(function(){
 
       var addUser = message.user_image ? message.user_image : '/images/dummyface.png'
 
-        var html =  `<div class="message" data-message-id="${message.id}">
-                      <div class="memo-message">
-                      <p class="memesage"></p>
-                      <div class="memo-image">
-                      <img class="message-user" height="60px" width="60px" src="${addUser}">
-                      </div>
-                      <div class="upper-message__user-name">
+
+        //  var html =     `<div class="message" data-message-id="${message.id}">
+        //                 <div class="memo-message">
+        //                 <p class="memesage"></p>
+        //                 <div class="memo-rock">
+        //                 <div class="memo-image">
+        //                 <img class="message-user" height="60px" width="60px" src="${addUser}">
+        //                 </div>
+        //                 <div class="upper-message__user-name">
+        //                   ${message.user_name}
+        //                 </div>
+        //                 </div>
+        //                 <div class="uuuu-aa">
+        //                 <div class="upper-message__date">
+        //                 ${message.created_at}
+        //                 </div>
+        //                 <div class="memo-m">
+        //                 <p class="mmm">
+        //                 <img class="lower-message__image" height="200px" width="px" src="${addImage}">
+        //                 ${message.content}
+        //                 </p>
+        //                 </div>
+        //                 </div>
+        //                 </div>
+        //                 </div>`
+
+      var html =       `<div class="message" data-message-id="${message.id}">
+                        <div class="memo-message">
+                        <p class="memesage"></p>
+                        <a href="/users/${message.user_id}"><div class="memo-rock">
+                        <div class="memo-image">
+                        <img class="message-user" height="60px" width="60px" src="${addUser}">
+                        </div>
+                        <div class="upper-message__user-name">
                         ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
+                        </div>
+                        </div>
+                        </a><div class="uuuu-aa">
+                        <div class="upper-message__date">
                         ${message.created_at}
-                      <p class="mmm">
+                        </div>
+                        <div class="memo-m">
+                        <p class="mmm">
+                        <img class="lower-message__image" height="200px" width="px" src="${addImage}">
                         ${message.content}
-                      <img class="lower-message__image" height="200px" width="px" src="${addImage}">
-                      </p>
-                      </div>
-                      </div>
-                      </div>`
+                        </p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>`
 
         return html;
     }

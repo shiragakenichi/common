@@ -7,12 +7,17 @@
   background-size:cover;
   justify-content: center;
   color: black;
+  overflow: scroll;
   
 }
 
+// .message{
+//   border-bottom: solid 2px black;
+// }
+
 .memo-no-to{
   margin-top: 100px;
-  width: 500px;
+  width: 50%;
   height: 85%;
   margin: 0 auto;
   background-image:url("/images/a-left.jpg");
@@ -37,9 +42,7 @@
 .memo-message{
   display: flex;
   text-align: center;
-  margin-left: 50px;
-  margin-top:30px  ;
-  margin-bottom:30px ;
+  margin: 30px 20px ;
 }
 
 .memo-message-crian{
@@ -68,7 +71,7 @@
 }
 
 .memo-right{
-  width: 50%;
+  width: 40%;
   height: 90%;
   //background: rosybrown;
   float: left;
@@ -94,15 +97,17 @@
   margin-top:20px;
   margin-right:15px;
 }
-.message-aria-try{
-    width: 0;
-    height: 0;
-    border: 30px solid transparent;
-    border-top: 70px solid #fff;
-    margin-left: 200px;
-    position: absolute;
+// .message-aria-try{
+//     width: 0;
+//     height: 0;
+//     border: 30px solid transparent;
+//     border-top: 70px solid #fff;
+//     margin-left: 200px;
+//     position: absolute;
 
-}
+// }
+
+
 
 .message-send{
   
@@ -117,9 +122,24 @@
   }
 }
 
+.upper-message__date{
+  text-align: left;
+  font-size: 12px;
+}
+
+.upper-message__date-cre{
+  text-align: right;
+  font-size: 12px;
+}
+
+.mmm{
+  font-size:18px;
+  margin-left:20px;
+}
+
 .group-user{
   position: relative;
-  height: 400px;
+  // height: 400px;
   display: flex;
   justify-content: center;
   overflow-x: scroll;
@@ -131,6 +151,38 @@
     }
   }
 }
+
+.itirann-user:hover{
+  border-bottom:solid 2px #fff;
+  font-size: 17px;
+  // .user-aaapp{
+  //   border-bottom:solid 2px #fff;
+  // }
+}
+
+
+
+// .group-nohito{
+//   border: 2px solid #fff;
+// }
+.user-aaapp{
+  color:#fff ;
+}
+
+.user-area{
+  text-align: center;
+  align-items: center;
+  font-size:25px ;
+}
+
+
+.up-box:hover{
+   border-bottom: solid 2px #fff ;
+   font-size:28px ;
+   margin:10px 0px ;
+ }
+
+
 
 .conteiner{
   & a{
