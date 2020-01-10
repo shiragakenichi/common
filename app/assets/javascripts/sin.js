@@ -25,7 +25,7 @@ $(function(){
 });
 
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $("label").on("change", 'input[type="file"]', function(e) {
     var file =  e.target.files[0],
         render =  new FileReader();

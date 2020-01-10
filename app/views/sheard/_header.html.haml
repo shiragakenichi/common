@@ -5,7 +5,8 @@
       %ul.left-cont
         %li.head-icon
           = link_to root_path do
-            %i.fas.fa-paw
+            %i.fas.fa-home
+            ホーム画面に戻る
         %li.head-lesson
           = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
@@ -40,7 +41,9 @@
               = current_user.nickname
         %li.follow-icon
           = link_to new_group_path do
-            %i.fas.fa-user-friends
+            .blother
+              %i.fas.fa-user-friends
+              グループを作成する
         %li.info-icon
           = link_to user_path(current_user.id) do
             %i.fas.fa-bell

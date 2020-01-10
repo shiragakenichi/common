@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy,:join]
+  before_action :set_group, only: [:edit, :update, :destroy,:join,:show]
   before_action :set_frend
   def index
   end
@@ -9,6 +9,9 @@ class GroupsController < ApplicationController
     # @users = User.all
     @users = @frend.where.not(id:@user.id)
     # @group.users << current_user
+  end
+
+  def show
   end
 
   def edit

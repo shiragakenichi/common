@@ -1,0 +1,18 @@
+.conteiner
+  = render partial: "sheard/header"
+  .jajaj
+    .aaaaa
+      .syozoku-usertati
+        = @group.name
+        に所属しているユーザー
+      .group-user-tati
+        - @group.user.each do |g|
+          .aaasdyyd
+            = image_tag g.image.url ,class:"image-user-face",height:"80px", width:"80px"
+          .name-aoa
+            = g.nickname
+          .setumei
+            = g.profile.introduction
+
+          
+        

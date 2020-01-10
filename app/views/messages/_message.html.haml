@@ -3,59 +3,74 @@
     .memo-message
       %p.memesage
       - if message.user.image.url nil?
-        .memo-image
-          =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
-        .upper-message__user-name
-          = message.user.nickname
-        .upper-message__date
-          = message.created_at.strftime("%Y/%m/%d %H:%M")
-        .memo-m
-          %p.mmm
-            -if message.efect_id.nil?
-              = message.content
-              = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
-            -else
-              = link_to group_album_path(@grou.id,@message.efect_id) do
+        = link_to user_path(message.user.id) do
+          .memo-rock
+            .memo-image
+              =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+            .upper-message__user-name
+              = message.user.nickname
+        .uuuu-aa
+          .upper-message__date
+            = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .memo-m
+            %p.mmm
+              -if message.efect_id.nil?
+                
+                = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
                 = message.content
+              -else
+                = link_to group_album_path(@group.id,message.efect_id) do
+                  = message.content
       - else 
-        .memo-image
-          =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
-        .upper-message__user-name
-          = message.user.nickname
-        .upper-message__date
-          = message.created_at.strftime("%Y/%m/%d %H:%M")
-          %p.mmm
-            -if message.efect_id.nil?
-              = message.content
-              = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
-            -else
-              = link_to group_album_path(@group.id,message.efect_id),class:"message-efe" do
+        = link_to user_path(message.user.id) do
+          .memo-rock
+            .memo-image
+              =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+            .upper-message__user-name
+              = message.user.nickname
+        .uuuu-aa
+          .upper-message__date
+            = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .memo-m
+            %p.mmm
+              -if message.efect_id.nil?
+                = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
                 = message.content
+              -else
+                = link_to group_album_path(@group.id,message.efect_id),class:"message-efe" do
+                  = message.content
+        
   - else
     .memo-message-crian
       .message-memo
         %p.memesage
         - if message.user.image.url nil?
-          .memo-image
-            =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
-          .upper-message__user-name
-            = message.user.nickname
-          .upper-message__date
-            = message.created_at.strftime("%Y/%m/%d %H:%M")
-          .memo-m
-            %p.mmm
-              = message.content
-              = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+          = link_to user_path(message.user.id) do
+            .uuuu-aa
+              .upper-message__date-cre
+                = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              .memo-m
+                %p.mmm
+                  = message.content
+                  = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+          .memo-rock
+            .memo-image
+              =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+            .upper-message__user-name
+              = message.user.nickname
         - else
-          .memo-image
-            =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
-          .upper-message__user-name
-            = message.user.nickname
-          .upper-message__date
-            = message.created_at.strftime("%Y/%m/%d %H:%M")
-            %p.mmm
-              = message.content
-              = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+          = link_to user_path(message.user.id) do
+            .uuuu-aa
+              .upper-message__date-cre
+                = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                %p.mmm
+                  = message.content
+                  = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+          .memo-rock
+            .memo-image
+              =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+            .upper-message__user-name
+              = message.user.nickname
 -# .message
 -#   .upper-message
 -#     .upper-message__user-name
