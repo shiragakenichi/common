@@ -11,7 +11,6 @@ Rails.application.configure do
   config.eager_load = true
 
 
-  server '18.178.29.73', user: 'ec2-user', roles: %w{app db web}
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
