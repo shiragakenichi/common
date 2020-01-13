@@ -19,7 +19,7 @@
             = link_to tag_signup_path(i.id),method: :post do
               .interests-block
                 .interests-block-image
-                  - if i.id <= 10   
+                  - if i.id <= 20   
                     = image_tag(i.image ,height: "80px")
                   - else
                     -if i.imagelist.url nil?
@@ -38,7 +38,7 @@
             = link_to untag_signup_path(my.id),method: :delete  do
               .interests-block
                 .interests-block-image
-                  - if my.id <= 10   
+                  - if my.id <= 20   
                     = image_tag(my.image ,height: "80px")
                   - else
                     -if my.imagelist.url nil?

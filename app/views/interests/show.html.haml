@@ -3,7 +3,7 @@
   .oooo
     .ooo-left
       .left-ooo-box
-        - if @interest.id <= 10   
+        - if @interest.id <= 20   
           = image_tag(@interest.image ,height: "300px")
         - else
           -if @interest.imagelist.url nil?
