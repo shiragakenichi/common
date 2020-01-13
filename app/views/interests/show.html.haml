@@ -32,10 +32,10 @@
       .tag-duke
         %p.tagzuke-user
           - if current_user.mytag?(current_user,@interest)
-            = link_to untag_interest_path(@interest.id), method: :delete do
+            = link_to untag_interest_path(@interest.id), method: :delete,class:'taguzuke' do
               このタグを外す
           - else
-            = link_to tag_interest_path(@interest.id), method: :post do
+            = link_to tag_interest_path(@interest.id), method: :post ,class:'taguzuke' do
               このタグを付ける
     
     

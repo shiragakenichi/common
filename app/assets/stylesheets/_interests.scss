@@ -25,6 +25,7 @@
 .ppp-right{
   display: inline-block;
   width: 500px;
+  height: 500px;
   overflow: scroll;
   margin: 30px 0 0 100px;
 }
@@ -32,4 +33,16 @@
 .ppp-user{
   display: inline-block;
  
+}
+
+.user-ppp-box{
+  overflow: scroll;
+}
+
+.taguzuke{
+  font-size:25px;
+  &:hover{
+    border-bottom:solid 2px #fff ;
+    font-size:28px;
+  }
 }
