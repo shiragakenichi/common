@@ -73,3 +73,43 @@
   width: 200px;
 }
 
+.int{
+  width: 400px;
+  height: 300px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size:22px ;
+  border: 1px black solid;
+}
+
+.login-profille-right{
+  text-align: center;
+  .login-profile-input{
+    margin: 10px 0;
+    & select{
+      width: 200px;
+      height: 40px;
+      font-size:25px ;
+    }
+  }
+  // .login-profile-input-sub{
+  //   & input{
+  //   width: 100px;
+  //   height:40px ;
+  //   }
+  // }
+}
+
+.ppppp-not{
+  width: 150px;
+  height: 40px;
+  background: chartreuse;
+}
+
+.ppppp-get{
+  width: 150px;
+  height: 40px;
+  background: chocolate;
+}
+
+

@@ -2,31 +2,39 @@
   = render partial: "sheard/header"
   .main-block
     .profile-main
-      .profile-side
-        .profile-image-box
-          - if @user.image.url nil?
-            = image_tag @user.image.url ,class:"image-user-face",height:"80px", width:"80px"
-          - else
-            = image_tag("/images/dummyface.png",class:"message-user", height: "80px", width: "80px")
-        .profile-relative-box
-          %ul.profile-relati
-            %li.profile-nickname
-              = @user.nickname
-          %ul.profile-relati
-            %li.profile-count
-              フォロワー
-            %li.profile-followers
-              = @user.followers.count
-          %ul.profile-relati
-            %li.profile-count
-              フォロー
-            %li.profile-followers
-              = @user.followings.count
-          %ul.profile-relati
-            %li.profile-count
-              友達
-            %li.profile-followers
-              = @user.matchers.count
+      .profile-image-box
+        - if @user.image.url nil?
+          = image_tag @user.image.url ,class:"image-user-face",height:"300px",max_width: "500px"
+        - else
+          = image_tag("/images/dummyface.png",class:"message-user", max_height: "300px", max_width: "500px")
+        -# .profile-relative-box
+        -#   %ul.profile-relati
+        -#     %li.profile-nickname
+        -#       = @user.nickname
+        -#   %ul.profile-relati
+        -#     %li.profile-count
+        -#       フォロワー
+        -#     %li.profile-followers
+        -#       = @user.followers.coati
+        -#     %li.profile-count
+        -#       フォロー
+        -#     %li.profile-followers
+        -#       = @user.followings.count
+        -#   %ul.profile-relati
+        -#     %li.profile-count
+        -#       友達
+        -#     %li.profile-followers
+        -#       = @user.matchers.count
+      .profile-otomodati
+      %p.oooo-profile
+        - if @user.id == current_user.id
+          = link_to frends_path do
+            友達数：
+            = @user.followers.where(id:Relationship.where(follower_id:@user.id).select(:following_id)).count
+            人
+        - else
+          友達数：
+          = @user.followers.where(id:Relationship.where(follower_id:@user.id).select(:following_id)).count
       .profile-text
         .profile-xam
           %p.profile-xam__are
@@ -45,8 +53,9 @@
             =  @age
       .profile-edit-btn
         - if @user.id == current_user.id
-          = link_to edit_user_path do
-            編集する
+          %p.ssssssssl
+            = link_to edit_user_path ,class:'papapa'do
+              編集する
         - else
           - if current_user.following?(@user)
             = render 'users/unfollow', user: @user
@@ -57,8 +66,8 @@
         %p.contn-right-head-fo
           myタグ
         - if @user.id == current_user.id
-          %p
-            = link_to tag_user_path(@user.id) do
+          %p.jjjj
+            = link_to tag_user_path(@user.id), class:'papapa' do
               タグを追加する
         - else
       .contn-right-my

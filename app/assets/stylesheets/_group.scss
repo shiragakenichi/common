@@ -48,3 +48,16 @@ url('/fonts/public/HuiFont/HuiFontP109.svg#HuiFontP109') format('svg');
 .syozoku-usertati{
   font-size:30px;
 }
+
+.proghe{
+  display: inline-block;
+  padding: 10px;
+  border: solid 1px #fff;
+  & :hover{
+    border: solid 3px #fff;
+  }
+}
+
+// .name-hova{
+//   border: solid 3px #FFF;
+// }

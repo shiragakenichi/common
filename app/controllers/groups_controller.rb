@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update, :destroy,:join,:show]
   before_action :set_frend
   def index
+    
   end
 
   def new

@@ -6,13 +6,18 @@
         = @group.name
         に所属しているユーザー
       .group-user-tati
-        - @group.user.each do |g|
-          .aaasdyyd
-            = image_tag g.image.url ,class:"image-user-face",height:"80px", width:"80px"
-          .name-aoa
-            = g.nickname
-          .setumei
-            = g.profile.introduction
+        - @group.users.each do |g|
+          = link_to user_path(g.id), class:'name-hova'do
+            .proghe
+              .aaasdyyd
+                - if g.image.url nil?
+                  = image_tag g.image.url ,class:"image-user-fa",height:"80px", width:"80px"
+                - else 
+                  = image_tag("/images/dummyface.png",class:"mess", height: "80px", width: "80px")
+              .name-aoa
+                = g.nickname
+              .setumei
+                = ((g.profile.introduction + '..........').first(7) + '...').first(10)
 
           
         
