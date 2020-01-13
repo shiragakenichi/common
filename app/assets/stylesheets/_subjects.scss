@@ -170,5 +170,37 @@ a{
   text-decoration: none;
 }
 
+.head-icon{
+  & :hover{
+    border-bottom: solid 2px #fff;
+  }
+}
+
+.head-lesson{
+  & :hover{
+    border-bottom: solid 2px #fff;
+  }
+}
+
+.user-infomation{
+  & :hover{
+    border-bottom: solid 2px #fff;
+  }
+}
+
+.user-icon{
+  & :hover{
+    border-bottom: solid 2px #fff;
+  }
+}
+
+.follow-icon{
+  & :hover{
+    border-bottom: solid 2px #fff;
+  }
+}
+
+
+
 
 
