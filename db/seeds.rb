@@ -58,6 +58,55 @@ Interest.create!(
     image: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://bit-trade-one.co.jp/wp/wp-content/uploads/2019/06/9f274a57a4ad9f6d0b2391d6c24f2d40-1024x561.jpg'
   )
 
+  Interest.create!(
+    tag: 'カラオケ好き',
+    image: 'https://www.cotedazur.jp/scene/images/main-scene4.jpg'
+  )
 
+  Interest.create!(
+    tag: '競馬好き',
+    image: 'https://image.shutterstock.com/z/stock-photo-two-jockeys-during-horse-races-on-his-horses-going-towards-finish-line-traditional-european-sport-1045681516.jpg'
+  )
+
+  Interest.create!(
+    tag: 'パチンコ好き',
+    image: 'https://image.shutterstock.com/z/stock-photo-blurred-people-playing-pachinko-or-japan-slot-machine-with-the-vivid-lights-1103182499.jpg'
+  )
+
+  Interest.create!(
+    tag: '車好き',
+    image: 'https://image.shutterstock.com/z/stock-photo-blue-compact-suv-car-with-sport-and-modern-design-parked-on-concrete-road-by-the-sea-at-sunset-764866978.jpg'
+  )
+
+
+  Interest.create!(
+    tag: '英語話せる',
+    image: 'https://cdn.pixabay.com/photo/2017/09/06/15/19/blackboard-2721887_1280.jpg'
+  )
+
+  Interest.create!(
+    tag: '自然が好き',
+    image: 'https://cdn.pixabay.com/photo/2017/06/28/17/06/janets-foss-2451389_1280.jpg'
+  )
+
+  Interest.create!(
+    tag: '犬が好き',
+    image: 'https://cdn.pixabay.com/photo/2014/11/20/00/49/english-bulldog-538485_1280.jpg'
+  )
+
+  Interest.create!(
+    tag: 'ストイックです',
+    image: 'https://cdn.pixabay.com/photo/2016/03/27/07/08/man-1282232_1280.jpg'
+  )
+
+  Interest.create!(
+    tag: '料理好き',
+    image: 'https://cdn.pixabay.com/photo/2016/03/27/21/34/restaurant-1284351_1280.jpg'
+  )
+
+  Interest.create!(
+    tag: '絵を書くのが好き',
+    image: 'https://cdn.pixabay.com/photo/2017/01/26/05/13/oekaki-2009817_1280.jpg'
+  )
 
 
