@@ -23,6 +23,13 @@
 タグからユーザーを探すこともできる。
 ![image](https://user-images.githubusercontent.com/56780590/72309671-fa5a5200-36c2-11ea-9975-9e7f45555da5.png)
 
+![image](https://user-images.githubusercontent.com/56780590/72311293-7b1b4d00-36c7-11ea-9786-90664b9a6021.png)
+
+### ・ユーザー検索機能
+ユーザーを名前、性別、都道府県の三段階で検索可能
+![image](https://user-images.githubusercontent.com/56780590/72311752-0fd27a80-36c9-11ea-9e0a-b5bc28f8554f.png)
+
+
 
 ### .友達機能 : 
 中間テーブルを使用することによって友達、フォロワー、フォロー、機能を実装、他のユーザーにフォローされる事によって、トップページにユーザーからの申請が表示される。フォローを返してもらう事によって友達に追加される。
@@ -46,6 +53,52 @@
 ![image](https://user-images.githubusercontent.com/56780590/72310799-10b5dd00-36c6-11ea-8256-caf014ef7138.png)
 
 ![image](https://user-images.githubusercontent.com/56780590/72310861-3d69f480-36c6-11ea-8ce2-1acb0270bfae.png)
+
+## データベース
+ usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|e-mail|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+ Association
+- has_many :group-users
+- has_many :messages
+- has_many :groups,  through:  :groups_users
+
+ groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_name|text|null: false|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+ Association
+- has_many : group-users
+- has_many : messages
+- has_many : users, through:  :groups_users
+
+
+ groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+ Association
+- belongs_to :group
+- belongs_to :user
+
+ messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|image|text||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+// Association
+- belongs_to :user
+- belongs_to :group
 
 
 
