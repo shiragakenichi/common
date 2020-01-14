@@ -27,5 +27,9 @@
 /config/master.key
 /config/secrets.yml
 /.env
-
-/public/uploads/
+/public/uploads/image
+/public/uploads/interest
+/public/uploads/message
+/public/uploads/user
+/public/uploads/tmp
+/public/uploads
