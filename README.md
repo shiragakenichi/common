@@ -60,7 +60,8 @@
 |------|----|-------|
 |e-mail|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|nickname|string|null: false|
+|image|string|
  Association
 - has_many :group-users
 - has_many :messages
@@ -69,9 +70,9 @@
  groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|text|null: false|
-|text|text|null: false|
+|name|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+
  Association
 - has_many : group-users
 - has_many : messages
