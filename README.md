@@ -56,6 +56,7 @@
 
 ## データベース
  usersテーブル
+ 
 |Column|Type|Options|
 |------|----|-------|
 |e-mail|string|null: false|
@@ -68,6 +69,7 @@
 - has_many :groups,  through:  :groups_users
 
  groupテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
@@ -91,10 +93,11 @@
 - belongs_to :user
 
  messagesテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|image|text|null: false|
+|image|text||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
