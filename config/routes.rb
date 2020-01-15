@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :following, :followers, :users_tweets
     end
     resources :profiles, only:[:new,:create]
+    resources :chats
   end
   resources :signup do
     collection do

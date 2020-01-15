@@ -11,6 +11,24 @@
                   = group.name
                 .group__message
                   = group.show_last_message
+      .meeesag
+        .kenedy
+          %p
+            ダイレクトメッセージをしているユーザー
+        - @chat_user.each do |cu|
+          .camu
+            = link_to user_chats_path(cu.id) do
+              = cu.nickname
+              さん :
+              - if (Chat.where(user_id:@user.id,send_id:cu.id) + Chat.where(user_id:cu.id,send_id:@user.id)).last.content?
+                = (Chat.where(user_id:@user.id,send_id:cu.id) + Chat.where(user_id:cu.id,send_id:@user.id)).last.content
+              - else
+                画像が投稿されています。
+          .create
+            最終投稿 :
+            = (Chat.where(user_id:@user.id,send_id:cu.id) + Chat.where(user_id:cu.id,send_id:@user.id)).last.created_at.strftime("%Y/%m/%d %H:%M")
+
+                
       .coo
         .alert-message-head
           = @sinsei.count

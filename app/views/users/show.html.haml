@@ -61,6 +61,8 @@
             = render 'users/unfollow', user: @user
           - else
             = render 'users/follow', user: @user
+          = link_to user_chats_path(@user.id) do
+            ダイレクトメッセージを送ってみる。
     .contn-right
       .contn-right-head
         %p.contn-right-head-fo

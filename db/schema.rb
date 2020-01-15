@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_104357) do
+ActiveRecord::Schema.define(version: 2020_01_14_092808) do
 
   create_table "albums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2020_01_07_104357) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_alerts_on_group_id"
     t.index ["user_id"], name: "index_alerts_on_user_id"
+  end
+
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.string "image"
+    t.integer "send_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -145,6 +155,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_104357) do
   add_foreign_key "albums", "groups"
   add_foreign_key "alerts", "groups"
   add_foreign_key "alerts", "users"
+  add_foreign_key "chats", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "images", "albums"

@@ -1,0 +1,157 @@
+.conteiner
+  = render partial: "sheard/header"
+  .bororor
+    .broud
+      .broud-no-to
+        .orign
+          -# %ul.paradaisu
+          .obama
+            = @user.nickname + 'さん'
+            と
+            = current_user.nickname + 'さん'
+        .memo-line
+          -# .chats{"data-message-id": "#{message.id}"}
+          - @chats.each do |c|
+            - if c.user == current_user
+              .memo-message
+                %p.memesage
+                - if c.user.image.url nil?
+                  = link_to user_path(c.user.id) do
+                    .memo-rock
+                      .memo-image
+                        =image_tag c.user.image.url,class:"message-user", height: "60px", width: "60px"
+                      .upper-message__user-name
+                        = c.user.nickname
+                  .uuuu-aa
+                    .upper-message__date
+                      = c.created_at.strftime("%Y/%m/%d %H:%M")
+                    .memo-m
+                      %p.mmm
+                        = image_tag c.image.url, class: 'lower-message__image',height: "200px", width: "px" if c.image.url.present?
+                        = c.content
+                - else 
+                  = link_to user_path(c.user.id) do
+                    .memo-rock
+                      .memo-image
+                        =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+                      .upper-message__user-name
+                        = c.user.nickname
+                  .uuuu-aa
+                    .upper-message__date
+                      = c.created_at.strftime("%Y/%m/%d %H:%M")
+                    .memo-m
+                      %p.mmm
+                        = image_tag c.image.url, class: 'lower-message__image',height: "200px", width: "px" if c.image.present?
+                        = c.content
+            - else
+              .memo-message-crian
+                .message-memo
+                  %p.memesage
+                  - if c.user.image.url nil?
+                    = link_to user_path(c.user.id) do
+                      .uuuu-aa
+                        .upper-message__date-cre
+                          = c.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                        .memo-m
+                          %p.mmm
+                            = c.content
+                            = image_tag c.image.url, class: 'lower-message__image',height: "200px", width: "px" if c.image.present?
+                    .memo-rock
+                      .memo-image
+                        =image_tag c.user.image.url,class:"message-user", height: "60px", width: "60px"
+                      .upper-message__user-name
+                        = c.user.nickname
+                  - else
+                    = link_to user_path(c.user.id) do
+                      .uuuu-aa
+                        .upper-message__date-cre
+                          = c.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                          %p.mmm
+                            = c.content
+                            = image_tag c.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+                    .memo-rock
+                      .memo-image
+                        =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+                      .upper-message__user-name
+                        = c.user.nickname
+          
+      .brom
+        .form-message
+          = form_for @chat, url:user_chats_path ,method: :post, id:'new-chats' do |ch|
+            .message-rig
+              .message-form
+                = ch.text_field :content, class: 'message-aria', placeholder: 'type a message'
+                %label.message-image
+                  %i.fas.fa-image
+                  = ch.file_field :image, class: 'hidden'
+            .message-send
+              //%i.far.fa-paper-plane
+              %label
+                = ch.submit 'Send', class: 'hidden'
+                %i.fas.fa-paper-plane
+        -# .capten
+        -#   .triangle
+      -#       - if message.user == current_user
+      -#         .memo-message
+      -#           %p.memesage
+      -#           - if c.image.url nil?
+      -#             = link_to user_path(c.user.id) do
+      -#               .memo-rock
+      -#                 .memo-image
+      -#                   =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+      -#                 .upper-message__user-name
+      -#                   = message.user.nickname
+      -#             .uuuu-aa
+      -#               .upper-message__date
+      -#                 = message.created_at.strftime("%Y/%m/%d %H:%M")
+      -#               .memo-m
+      -#                 %p.mmm
+      -#                   = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+      -#                   = message.content
+      -#           - else 
+      -#             = link_to user_path(message.user.id) do
+      -#               .memo-rock
+      -#                 .memo-image
+      -#                   =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+      -#                 .upper-message__user-name
+      -#                   = message.user.nickname
+      -#             .uuuu-aa
+      -#               .upper-message__date
+      -#                 = message.created_at.strftime("%Y/%m/%d %H:%M")
+      -#               .memo-m
+      -#                 %p.mmm
+      -#                   = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+      -#                   = message.content
+      -#       - else
+      -#         .memo-message-crian
+      -#           .message-memo
+      -#             %p.memesage
+      -#             - if message.user.image.url nil?
+      -#               = link_to user_path(message.user.id) do
+      -#                 .uuuu-aa
+      -#                   .upper-message__date-cre
+      -#                     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      -#                   .memo-m
+      -#                     %p.mmm
+      -#                       = message.content
+      -#                       = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+      -#               .memo-rock
+      -#                 .memo-image
+      -#                   =image_tag message.user.image.url,class:"message-user", height: "60px", width: "60px"
+      -#                 .upper-message__user-name
+      -#                   = message.user.nickname
+      -#             - else
+      -#               = link_to user_path(message.user.id) do
+      -#                 .uuuu-aa
+      -#                   .upper-message__date-cre
+      -#                     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      -#                     %p.mmm
+      -#                       = message.content
+      -#                       = image_tag message.image.url, class: 'lower-message__image',height: "200px", width: "px" if message.image.present?
+      -#               .memo-rock
+      -#                 .memo-image
+      -#                   =image_tag("/images/dummyface.png",class:"message-user", height: "60px", width: "60px")
+      -#                 .upper-message__user-name
+      -#                   = message.user.nickname
+          
+      

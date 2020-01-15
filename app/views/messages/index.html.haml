@@ -44,6 +44,9 @@
               = f.submit 'Send', class: 'hidden'
               %i.fas.fa-paper-plane
     .memo-no-to
+      .hen
+        %p.orafu
+          = @group.name
       .memo-line
         = render partial: 'message', collection: @messages
       

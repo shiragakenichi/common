@@ -5,6 +5,7 @@ class User < ApplicationRecord
          mount_uploader :image, ImageUploader
   has_many :group_users,dependent: :destroy
   has_many :messages
+  has_many :chats
   has_many :alert
   has_many :groups, through: :group_users
   has_many :sns_credentials, dependent: :destroy
@@ -137,4 +138,12 @@ class User < ApplicationRecord
   def mytag?(user,other_interest)
     interest_users.find_by(user_id:user.id,interest_id:other_interest.id)
   end
+
+  # def show_last_chat
+  #   if (last_chat = .last).present?
+  #     last_message.content? ? last_message.content : '画像が投稿されています'
+  #   else
+  #     'まだメッセージはありません。'
+  #   end
+  # end
 end
