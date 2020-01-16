@@ -151,4 +151,56 @@ position: relative;
   }
 }
 
+.broud-no-to{
+  margin-top: 100px;
+  width: 50%;
+  height: 85%;
+  margin: 0 auto;
+  background-image:url("/images/a-left.jpg");
+  // opacity: 0.80;
+  position: absolute;
+  margin: 30px;
+  // background-color: rgba(255,255,255,0.4);
+  display:inline-block;
+  overflow: scroll;
+}
+
+.brom{
+  width: 40%;
+  display: inline-block;
+  float: right;
+}
+
+// .capten{
+//   width: 60%;
+// }
+
+// .triangle{
+//     border-right: 165px solid transparent;
+//     border-bottom: 100px solid ;
+//     border-left: 165px solid transparent;
+// }
+
+
+.orign{
+  justify-content: space-between;
+  width: 100%;
+}
+
+.paradaisu{
+  display: flex;
+}
+
+.obama{
+  font-size: 28px;
+  display: inline-block;
+}
+
+.broud-no-to{
+  color: black;
+  & a{
+    color: black;
+  }
+}
+
 

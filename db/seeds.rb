@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Interest.create!(
   tag: '映画が好き',
   image: 'https://movie.jorudan.co.jp/theater/images/640/J1000609_1.jpg'
@@ -109,4 +110,155 @@ Interest.create!(
     image: 'https://cdn.pixabay.com/photo/2017/01/26/05/13/oekaki-2009817_1280.jpg'
   )
 
+#   User.create!(
+#   [
+#     {
+#       email: 'test1@test.com',
+#       password: '111111',
+#       nickname: 'テスト太郎',
+#     },
+#     {
+#       email: 'test2@test.com',
+#       password: '222222',
+#       nickname: 'テスト徹子',
+#     },
+#     {
+#       email: 'test3@test.com',
+#       password: '111111',
+#       nickname: 'テスト太郎',
+#     },
+#     {
+#       email: 'test4@test.com',
+#       password: '222222',
+#       nickname: 'テスト徹子',
+#     },
+#     {
+#       email: 'test5@test.com',
+#       password: '111111',
+#       nickname: 'テスト太郎',
+#     },
+#     {
+#       email: 'test6@test.com',
+#       password: '222222',
+#       nickname: 'テスト徹子',
+#     },
+#     {
+#       email: 'test7@test.com',
+#       password: '111111',
+#       nickname: 'テスト太郎',
+#     },
+#     {
+#       email: 'test8@test.com',
+#       password: '222222',
+#       nickname: 'テスト徹子',
+#     },
+#     # {
+#     #   email: 'test9@test.com',
+#     #   password: '111111',
+#     #   nickname: 'テスト太郎',
+#     # },
+#     # {
+#     #   email: 'test10@test.com',
+#     #   password: '222222',
+#     #   nickname: 'テスト徹子',
+#     # },
+    
+#   ]
+# )
+
+# Profile.create!(
+#   [
+#     {
+#       introduction:'元気です1',
+#       gender: '男性',
+#       prefectures: '大阪府',
+#       birth_year: '2000',
+#       birth_month: '02',
+#       birth_day: '11',
+#       user_id: '1',
+#     },
+#     {
+#       introduction:'元気です2',
+#       gender: '女性',
+#       prefectures: '京都府',
+#       birth_year: '1997',
+#       birth_month: '04',
+#       birth_day: '04',
+#       user_id: '2',
+#     },
+#     {
+#       introduction:'元気です3',
+#       gender: '男性',
+#       prefectures: '大阪府',
+#       birth_year: '2000',
+#       birth_month: '02',
+#       birth_day: '11',
+#       user_id: '3',
+#     },
+#     {
+#       introduction:'元気です4',
+#       gender: '女性',
+#       prefectures: '東京都',
+#       birth_year: '1886',
+#       birth_month: '11',
+#       birth_day: '08',
+#       user_id: '4',
+#     },
+#     {
+#       introduction:'元気です5',
+#       gender: '男性',
+#       prefectures: '大阪府',
+#       birth_year: '2001',
+#       birth_month: '09',
+#       birth_day: '22',
+#       user_id: '5',
+#     },
+#     {
+#       introduction:'元気です6',
+#       gender: '女性',
+#       prefectures: '福岡県',
+#       birth_year: '1997',
+#       birth_month: '10',
+#       birth_day: '04',
+#       user_id: '6',
+#     },
+#     {
+#       introduction:'元気です7',
+#       gender: '男性',
+#       prefectures: '大阪府',
+#       birth_year: '2000',
+#       birth_month: '02',
+#       birth_day: '11',
+#       user_id: '7',
+#     },
+#     {
+#       introduction:'元気です8',
+#       gender: '男性',
+#       prefectures: '神奈川県',
+#       birth_year: '2000',
+#       birth_month: '02',
+#       birth_day: '11',
+#       user_id: '8',
+#     },
+
+#     # {
+#     #   introduction:'元気です9',
+#     #   gender: '---',
+#     #   prefectures: '青森県',
+#     #   birth_year: '1967',
+#     #   birth_month: '02',
+#     #   birth_day: '11',
+#     #   user_id: '9',
+#     # },
+#     # {
+#     #   introduction:'元気です10',
+#     #   gender: '女性',
+#     #   prefectures: '神奈川県',
+#     #   birth_year: '2000',
+#     #   birth_month: '02',
+#     #   birth_day: '11',
+#     #   user_id: '10',
+#     # },
+#   ]
+# )
 
