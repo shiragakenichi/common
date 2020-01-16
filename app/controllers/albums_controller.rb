@@ -11,53 +11,21 @@ class AlbumsController < ApplicationController
     @album.images.build
   end
 
-  
-
-  # def create
-  #   @album = Album.new(album_params)
-  #   @images = @album.images
-  #   if @images.length != 0
-  #     @album.save
-  #     redirect_to group_albums_path(@group.id)
-  #   else
-  #     redirect_to  new_group_album_path(@group.id)
-  #   end  
-  # end
-
-
-  # def create
-  #   @album = Album.new(album_params)
-  #   respond_to do |format|
-  #     if @album.save
-  #         params[:images][:image].each do |image|
-  #           @image = Image.new(upload_file(@album,image))
-  #           @image.save(image: image, album_id: @album.id, created_at: @album.created_at, updated_at:@album.updated_at)
-  #         end
-  #       format.html{redirect_to root_path}
-  #     else
-  #       @album.images.build
-  #       format.html{render action: 'new'}
-  #     end
-  #   end
-  # end
 
   def create
     puts album_params
     # .merge(images: photo_params[:images].collect{|p| {image: p}})
     @album = Album.new(album_params)
     respond_to do |format|
+    if params[:images] == nil
+      @album.images.build
+      format.html{render action: 'new'}
+    else
       if @album.save
-        # print "photo_params[:images]"
-        # puts photo_params[:images]
-        # @album.images.create(image: photo_params[:images])
-          # params[:images][:image].each do |a|
-         
           photo_params[:images].each do |a|
             image = a
             @album.images.create(image: image)
           end
-          #  @image = @album.images.create!(:image => a, :album_id => @album.id)
-        # # end
         @user = current_user
         amessage = @user.nickname + 'がアルバムを作成しました'
         @message = Message.new(content: amessage , group_id: @group.id , user_id: @user.id,efect_id: @album.id)
@@ -68,6 +36,7 @@ class AlbumsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
+   end
   end
 
   def show
@@ -76,6 +45,35 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    @images = @album.images
+  end
+
+  def update
+    @album.update(album_params)
+    # respond_to do |format|
+      if params[:images] == nil
+        # @images = @album.images
+        # @images.build
+        # format.html{render action: 'edit'}
+        redirect_to edit_group_album_path(@group.id,@album.id)
+      else
+        if @album.save
+            photo_params[:images].each do |a|
+              image = a
+              @album.images.create(image: image)
+            end
+          @user = current_user
+          amessage = @user.nickname + 'がアルバムを更新しました。'
+          @message = Message.new(content: amessage , group_id: @group.id , user_id: @user.id,efect_id: @album.id)
+          @message.save
+          redirect_to group_album_path(@group.id,@album.id)
+        else
+          redirect_to edit_group_album_path(@group.id,@album.id)
+          # @images = @album.images
+          # @images.build
+          # format.html{render action: 'edit'}
+        end
+    end
   end
 
 

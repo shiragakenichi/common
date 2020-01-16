@@ -46,7 +46,9 @@ Rails.application.routes.draw do
       post 'join'
     end
   resources :messages, only: [:index, :create]
-  resources :albums
+  resources :albums do
+    resources :photos
+  end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end

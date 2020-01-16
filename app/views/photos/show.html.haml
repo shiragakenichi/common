@@ -1,0 +1,14 @@
+.conteiner
+  .rinenn
+    .header-riner
+    = render partial: "sheard/header"
+    = link_to new_group_album_path(@group.id) do
+      アルバムを作る
+    = link_to group_messages_path(@group.id) do
+      メッセージ画面に戻る
+    = link_to group_album_path(@group.id,@album.id) do
+      アルバムに戻る
+    .riner-main
+      .akakak
+        = image_tag @photo.image.url, class:"item-image",height:'500px'
+    

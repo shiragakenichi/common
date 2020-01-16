@@ -80,7 +80,7 @@ $(function(){
           $('.memo-line').append(html)
           $('#new_message')[0].reset();
           $('.hidden').prop('disabled', false);
-          $('.memo-no-to').animate({scrollTop: $('.memo-no-to')[0].scrollHeight}, 'fast');
+          $('.memo-line').animate({scrollTop: $('.memo-line')[0].scrollHeight}, 'fast');
           })
         .fail(function(){
           alert('メッセージ送信に失敗しました');
@@ -111,7 +111,7 @@ $(function(){
               insertHTML = buildPost(message); //メッセージが入ったHTMLを取得
               $('.memo-line').append(insertHTML);//メッセージを追加
               })
-            $('.memo-no-to').animate({scrollTop: $('.memo-no-to')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
+            $('.memo-line').animate({scrollTop: $('.memo-line')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
           })
           .fail(function () {
             alert('自動更新に失敗しました');//ダメだったらアラートを出す

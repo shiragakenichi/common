@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_092808) do
+ActiveRecord::Schema.define(version: 2020_01_15_123107) do
 
   create_table "albums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -124,6 +124,21 @@ ActiveRecord::Schema.define(version: 2020_01_14_092808) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
+  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -136,6 +151,17 @@ ActiveRecord::Schema.define(version: 2020_01_14_092808) do
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "talks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.string "image"
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_talks_on_room_id"
+    t.index ["user_id"], name: "index_talks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -164,5 +190,9 @@ ActiveRecord::Schema.define(version: 2020_01_14_092808) do
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "talks", "rooms"
+  add_foreign_key "talks", "users"
 end

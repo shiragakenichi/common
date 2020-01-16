@@ -1,0 +1,24 @@
+.conteiner
+  .rinenn
+    = render partial: "sheard/header"
+    = link_to new_group_album_path(@group.id) do
+      アルバムを作る
+    = link_to group_messages_path(@group.id) do
+      メッセージ画面に戻る
+    = form_for [@group, @album],id:'new-album' do |f|
+      = f.text_field :name, class: 'message-aria', placeholder: 'アルバム名を入力してください'
+      %label
+        = f.submit 'Send', class: 'hidden'
+        %i.fas.fa-paper-plane
+      = f.fields_for @images do |image|
+        = image.label :image, class: 'sell-image' do
+          = image.file_field :image, multiple: true, name: 'images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0
+  .borocck
+    - @images.each do |im|
+      .mooo
+        = image_tag im.image.url, class:"item-image",height:'200px'
+        = button_to "/groups/#{@group.id}/albums/#{@album.id}/photos/#{im.id}", method: :delete do
+          写真を削除する
+  
+      
+
