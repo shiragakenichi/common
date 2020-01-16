@@ -53,6 +53,148 @@
               = link_to join_group_path(a.group_id), method: :post do
                 参加する 
     - else
+      .brather-tom
+        .ssss
+          %h1
+            アプリ名:COMMON
+          %h2
+            グループチャットアプリ
+          %h2
+            機能一覧
+          %h3
+            使い方
+          %h4
+            step-1 :
+            まずは登録してみよう
+          %ul
+            %li
+              メールアドレス,
+            %li
+              ニックネーム(１０文字以内)、
+            %li
+              パスワード(８文字以上)、
+            %li
+              イメージ画像が入力できます。(イメージは後からでも登録可能です。)
+            
+            .boc
+              = image_tag("/images/mihon1.png",  width: "600px")
+          %h4
+            step-2 : 
+            プロフィールを入力しよう
+          %ul
+            %li
+              プロフィール説明文、
+            %li
+              性別,
+            %li
+              移住地,
+            %li
+              生年月日が入力できます。
+            %li 
+              プロフィールは後からでも登録できるので、
+            %li
+              スキップしていただいて構いません。
+          .boc
+            = image_tag("/images/mihon2.png",  width: "600px")
+          %h4
+            step-4 :
+            タグを付けよう
+          %ul
+            %li
+              ユーザーにタグ付けができます。
+            %li
+              気になるタグをクリックすることで、ユーザーと紐ずけることができます。
+            %li
+              自分で、タグを作成することも可能です。
+            %li
+              タグからユーザーを探すこともできるので是非付けてみましょう
+          .boc
+            = image_tag("/images/mihon3.png",  width: "600px")
+          %h3
+            友達申請機能
+          %ul
+            %li
+              ユーザーの一覧ページ、またはユーザーの詳細ページから
+            %li
+              ユーザーをフォローすることができます。
+            %li
+              フォローされたユーザーにはトップページに通知が行くため、
+            %li
+              通知のリンクからユーザーの商材ページに飛ぶことができます。
+            %li
+              フォローバックすることにより友達に追加されます。
+          .boc
+            = image_tag("/images/mihon4.png",  width: "600px")
+          .boc
+            = image_tag("/images/mihon5.png",  width: "600px")
+          %h3
+            グループ作成機能
+          %ul
+            %li
+              友達になった人とグループになることができます。
+            %li
+              友達になった人をグループに招待して参加してもらえます。
+            %li
+              友達から招待された場合はトップページに通知が行くのでクリックすることで参加することができます。
+          .boc
+            = image_tag("/images/mihon6.png",  width: "600px")
+          .boc
+            = image_tag("/images/mihon7.png",  width: "600px")
+          %h3
+            グループメッセージ機能
+          %ul
+            %li
+              グループに入っているユーザー同士でメッセージをすることが可能です。
+            %li
+              メッセージ入力欄に記入後に紙飛行機のボタンをクリックしてください。
+            %li
+              グループを退出する時は、グループを退出するをクリックすることで退出できます。
+          .boc
+            = image_tag("/images/mihon8.png",  width: "600px")
+          %h3
+            グループアルバム機能
+          %ul
+            %li
+              作成したグループでアルバムを作ることが可能です。
+          .boc
+            = image_tag("/images/mihon9.png",  width: "600px")
+          %h3
+            ダイレクトメッセージ機能
+          %ul
+            %li
+              ユーザーにダイレクトメッセージが送信できます。
+            %li
+              それぞれのユーザーの詳細ページのダイレクトメッセージを送ってみるをクリックすることによって
+            %li
+              ダイレクトメッセージ送信画面に飛ぶことができます。
+            %li
+              友達になっていなくても送信可能なので、是非気になるユーザーがいれば送ってみましょう
+            %li
+              ダイレクトメッセージで交流している場合は、トップページからそのユーザーとのページに飛ぶことができます。
+          .boc
+            = image_tag("/images/mihon11.png",  width: "600px")
+          .boc
+            = image_tag("/images/mihon10.png",  width: "600px")
+      .exhibit-button__wide
+        .exhibit-button__wide__content
+          .exhibit-button__wide__content__text
+            新規登録する
+          .exhibit-button__wide__content__icon
+            ログインする
+
+
+
+        
+        
+          
+
+          
+
+          
+          
+
+
+
       -# .coo
       -#   .alert-message-head
       -#     = @sinsei.count

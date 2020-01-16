@@ -96,8 +96,37 @@ a{
 
 .main{
   width: 95%;
-  height: calc(100vh - 55px);
+  height: 95%;
   overflow: scroll;
+  margin: 0 auto;
+}
+
+.brather-tom{
+  background: white;
+  width: 70%;
+  color: black;
+//  position: relative;
+  .ssss{
+    background: white;
+    margin-top:20px ;
+    // position: absolute;
+
+    
+  }
+  // padding: 10px;
+  & h1{
+    font-size:50px
+  }
+  & h2{
+    font-size:35px
+  }
+  & h3{
+    font-size:27px
+  }
+
+  &h4{
+    font-size:22px
+  }
 }
 
 
@@ -201,6 +230,38 @@ a{
 .follow-icon{
   & :hover{
     border-bottom: solid 2px #fff;
+  }
+}
+
+.brather-tom{
+  text-align: center;
+}
+.exhibit-button__wide{
+    position: fixed;
+    right: -14px;
+    bottom: -14px;
+    text-align: center;
+    z-index: 2;
+}
+
+.exhibit-button__wide__content{
+    width: 300px;
+    height: 300px;
+    padding-top: 32px;
+    
+}
+
+.exhibit-button__wide__content__text{
+  font-size:30px;
+  &:hover{
+    font-size:40px ;
+  }
+}
+
+.exhibit-button__wide__content__icon{
+  font-size:30px;
+  &:hover{
+    font-size:40px
   }
 }
 
