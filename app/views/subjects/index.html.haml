@@ -178,9 +178,11 @@
       .exhibit-button__wide
         .exhibit-button__wide__content
           .exhibit-button__wide__content__text
-            新規登録する
+            = link_to new_user_session_path do
+              新規登録する
           .exhibit-button__wide__content__icon
-            ログインする
+            = link_to step1_signup_index_path do
+              ログインする
 
 
 
