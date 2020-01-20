@@ -7,26 +7,28 @@
         .login-left
           .left-exa
             .left-sns
-              .left-sns-icon-google
-                %i.fab.fa-google
-              = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
-                .sns-box-google
-                  %i.fab.fa-google
-                  Googleでログイン
-            .left-sns
               .left-sns-icon-twitter
                 %i.fab.fa-twitter
               = link_to user_line_omniauth_authorize_path do
                 .sns-box-twitter
                   %i.fab.fa-twitter
                   twitterでログイン
-            .left-sns
-              .left-sns-icon-facebook
-                = icon('fab', 'facebook-square', class: "facebook-icon")
-              = link_to user_facebook_omniauth_authorize_path do
-                .sns-box-facebook
-                  %i.fab.fa-facebook-square
-                  facebookでログイン
+              - if Rails.env.development? || Rails.env.test? 
+                .left-sns
+                  .left-sns-icon-google
+                    %i.fab.fa-google
+                  = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
+                    .sns-box-google
+                      %i.fab.fa-google
+                      Googleでログイン
+                .left-sns
+                  .left-sns-icon-facebook
+                    = icon('fab', 'facebook-square', class: "facebook-icon")
+                  = link_to user_facebook_omniauth_authorize_path do
+                    .sns-box-facebook
+                      %i.fab.fa-facebook-square
+                      facebookでログイン
+              - elsif Rails.env.production?
             = render "devise/shared/links"
         .login-right
           .form-log
