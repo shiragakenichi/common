@@ -10,14 +10,6 @@
               = f.file_field :image,class:"fail-dodo"
               .image-box
           .left-exa
-            .left-sns
-              .left-sns-icon-google
-                %i.fab.fa-google
-                //= icon('fab', 'fa-google', class: "google-icon")
-              = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
-                .sns-box-google
-                  %i.fab.fa-google
-                  Googleでログイン
             .left-sns  
               .left-sns-icon-twitter
                 //= icon('fab', 'fa-twitter', class: "twitter-icon")
@@ -26,13 +18,23 @@
                 .sns-box-twitter
                   %i.fab.fa-twitter
                   twitterでログイン
-            .left-sns
-              .left-sns-icon-facebook
-                = icon('fab', 'facebook-square', class: "facebook-icon")
-              = link_to user_facebook_omniauth_authorize_path do
-                .sns-box-facebook
-                  %i.fab.fa-facebook-square
-                  facebookでログイン
+            - if Rails.env.development? || Rails.env.test? 
+              .left-sns
+                .left-sns-icon-google
+                  %i.fab.fa-google
+                  //= icon('fab', 'fa-google', class: "google-icon")
+                = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
+                  .sns-box-google
+                    %i.fab.fa-google
+                    Googleでログイン
+              .left-sns
+                .left-sns-icon-facebook
+                  = icon('fab', 'facebook-square', class: "facebook-icon")
+                = link_to user_facebook_omniauth_authorize_path do
+                  .sns-box-facebook
+                    %i.fab.fa-facebook-square
+                    facebookでログイン
+            - elsif Rails.env.production?
         .login-right
           .form-log
             = f.label :nickname
