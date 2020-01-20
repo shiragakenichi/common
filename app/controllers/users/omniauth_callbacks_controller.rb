@@ -37,7 +37,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
      
 
-      render template: "users/new"
+      render template: "signup/step1sns"
     end
   end
 

@@ -1,0 +1,53 @@
+.conteiner
+  = render partial: "sheard/header"
+  = form_for @user, url:signup_index_path do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .login-main
+      .login-sub
+        .login-left
+          .left-image
+            = f.label :image do
+              = f.file_field :image,class:"fail-dodo"
+              .image-box
+          .left-exa
+            .left-sns
+              .left-sns-icon-google
+                %i.fab.fa-google
+                //= icon('fab', 'fa-google', class: "google-icon")
+              = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"sns-bb" do
+                .sns-box-google
+                  %i.fab.fa-google
+                  Googleでログイン
+            .left-sns  
+              .left-sns-icon-twitter
+                //= icon('fab', 'fa-twitter', class: "twitter-icon")
+                %i.fab.fa-twitter
+              = link_to user_line_omniauth_authorize_path do
+                .sns-box-twitter
+                  %i.fab.fa-twitter
+                  twitterでログイン
+            .left-sns
+              .left-sns-icon-facebook
+                = icon('fab', 'facebook-square', class: "facebook-icon")
+              = link_to user_facebook_omniauth_authorize_path do
+                .sns-box-facebook
+                  %i.fab.fa-facebook-square
+                  facebookでログイン
+        .login-right
+          .form-log
+            = f.label :nickname
+            = f.text_field :nickname, autofocus: true, maxlength: "10"
+          .form-log
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .form-log
+            = f.label :password
+            = f.password_field :password, autocomplete: "new-password"
+          .form-log
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .form-send
+            %label
+              %button.submit-sin
+                登録して始める
+                = f.submit "登録して始める",class:"submit-sing"
