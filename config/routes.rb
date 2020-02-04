@@ -58,6 +58,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :abatas
+  resources :mys
   # resources :htmls ,only: [:index]do
   #   collection do
   #     get 'step1'

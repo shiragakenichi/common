@@ -1,0 +1,2 @@
+module AbatasHelper
+end
